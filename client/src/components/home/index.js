@@ -15,7 +15,7 @@ export default (props) => {
   const onSearch = async keyword => {
     const response = await API.get("/search", {
       params: {
-        q: keyword
+        q: keyword + " diy"
       }
     })
     console.log(response)
