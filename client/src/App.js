@@ -6,9 +6,7 @@ import SignUp from "./components/login/signup";
 import Home from "./components/home/";
 
 
-function App() {
-  console.log(process.env.REACT_APP_YOUTUBE_API_KEY)
-  
+function App() {  
   return (
     <Router>
       <div className="App">
