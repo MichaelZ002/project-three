@@ -27,11 +27,7 @@ export default class CenterMode extends Component {
       centerPadding: "6px",
       pauseOnHover: true,
       swipeToSlide: true,
-      afterChange: function (index) {
-        console.log(
-          `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-        );
-      }
+      
     };
 
     const photos = [
@@ -77,13 +73,24 @@ export default class CenterMode extends Component {
       }
     ]
 
-
     return (
       <Slider {...settings}>
         {photos.map(photo => {
           return (
-            <div>
-              <img style={{ width: "80vw", height: "605px", marginLeft: "auto", marginRight: "auto", objectFit: "cover", objectPosition: "center center" }} src={photo.name} alt={photo.alt} />
+            <div key={photo.alt}>
+              <img 
+                style={
+                  { 
+                    width: "80vw", 
+                    height: "505px", 
+                    marginLeft: "auto", 
+                    marginRight: "auto", 
+                    objectFit: "cover", 
+                    objectPosition: "center center" 
+                  }
+                } 
+                src={photo.name} alt={photo.alt}
+              />
             </div>
           )
         })}

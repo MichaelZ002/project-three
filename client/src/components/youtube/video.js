@@ -1,33 +1,36 @@
 import React, {useState, useEffect} from "react";
 import "../../styles/_video.css";
-function selectVideo(videoIdObj, vidSelected) {
-  vidSelected(videoIdObj.videoId);
+
+function grabVideo(vidIdObj, vidSelected) {
+  console.log(vidIdObj)
+  vidSelected(vidIdObj.videoId);
 }
-function getCss(imageurl) {
-  const _styles = {
+function vidStylez(imageurl) {
+  const stylez = {
+    position: "relative",
     backgroundImage: `url(${imageurl})`,
     backgroundSize: "cover",
     backgroundPosition: "center center",
     height: "180px",
-    position: "relative"
   };
-  return _styles;
+  return stylez;
 }
-function constructVideoTitles(vidoesData, vidSelected) {
-  return vidoesData.map(({ snippet, id }, index) => {
+function createVidTiles(vidInfo, vidSelected) {
+  return vidInfo.map(({ snippet, id }, index) => {
     return (
       <div
         className="video"
+        id="firstVid"
         key={index}
-        onClick={() => selectVideo(id, vidSelected)}>
-        <div style={getCss(snippet.thumbnails.high.url)} key={index} />
+        onClick={() => grabVideo(id, vidSelected)}>
+        <div style={vidStylez(snippet.thumbnails.high.url)} key={index} />
         <p className="title">{snippet.title}</p>
       </div>
     );
   });
 }
 const Video = ({ data, vidSelected }) => {
-  return <>{constructVideoTitles(data, vidSelected)}</>;
+  return <>{createVidTiles(data, vidSelected)}</>;
 };
 
 export default Video;
