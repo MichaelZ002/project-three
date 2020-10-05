@@ -1,8 +1,8 @@
 #videoSearch {
-    width: 400px;
+  width: 400px;
 }
 
-.search-form {
+/* .search-form {
     border-bottom: 1px solid lightgray;
     display: flex;
     justify-content: flex-start;
@@ -33,7 +33,7 @@
   .form-controls label {
     display: none;
   }
-  
+   */
    
   
    

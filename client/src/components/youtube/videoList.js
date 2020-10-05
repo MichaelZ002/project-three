@@ -8,13 +8,9 @@ import Video from "./video";
 // })}
 export default function VideoList({ data, vidSelected }) {
   return (
-    <div className="video-list">
+    <div className="vidList">
       <div style={{ padding: "20px 0" }}>
-        <h3
-          style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}
-        >
-          Videos List
-        </h3>
+        <h3 style={{ textAlign: "center", fontWeight: "bold", marginTop: "20px" }}>Your Next Project Is Waiting...</h3>
         <Video data={data} vidSelected={vidSelected} />
       </div>
     </div>
