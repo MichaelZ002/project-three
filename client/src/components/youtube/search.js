@@ -12,9 +12,6 @@ export default (props) => {
     e.preventDefault();
     props.onSearch(state.title)
   }
-  // useEffect(() => {
-  //   handleSubmit()
-  // }, [""]);
 
   // update the state with every character the user types in the search
   const searchtoState = (e) => {
@@ -22,15 +19,6 @@ export default (props) => {
     console.log(searchWords)
     setState({ title: searchWords })
   }
-
-  // const scrollToVids = async (e) => {
-    
-  //   const elmnt = await document.getElementById("firstVideo");
-    
-  //   elmnt.scrollIntoView();
-    
-    
-  // }
 
   return (
     <div style={{textAlign: "center"}}>

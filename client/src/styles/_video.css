@@ -3,7 +3,10 @@
   box-shadow: 0 2px 1px #ff6a00;
   border: 1px solid #ee0979;
   border-radius: 2px;
-  margin: 50px auto 20px 15vw
+  margin-top: 50px;
+  margin-right: inherit;
+  margin-bottom: 20px;
+  margin-left: 15vw;
   
 }
 

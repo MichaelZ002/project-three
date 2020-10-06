@@ -7,6 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 // Component copied from Material UI website documentation.
 const styles = {
   root: {
+    marginLeft: "10px",
     background: 'linear-gradient(to left, #ee0979, #ff6a00)',
     borderRadius: 3,
     border: 0,
