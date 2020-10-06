@@ -1,10 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Search from "../youtube/search";
 import API from "../../utils/youtube-api"
+import Navbar from "../navbar/navbar";
+import banner from "../../images/bg.jpg";
+import {
+  Grid,
+  Card,
+  CardActionArea,
+  CardMedia,
+} from "@material-ui/core/";
 
 export default (props) => {
   const [videoState, setVideoState] = useState({
-    vidMetaData:[],
+    vidMetaData: [],
     vidID: null
   })
 
@@ -22,7 +30,21 @@ export default (props) => {
   }
   return (
     <>
-      <Search onSearch={onSearch} />
+      <Navbar />
+      <Grid container justify="center"style={{backgroundColor: "#fff7e6"}} >
+        <Card >
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              alt="banner-image"
+              height="200"
+              image={banner}
+            >
+            </CardMedia>
+          </CardActionArea>
+        </Card>
+        <Search onSearch={onSearch} />
+      </Grid>
     </>
   )
 }

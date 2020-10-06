@@ -27,8 +27,12 @@
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
+    "material-ui-banner": "^1.4.3",
+    "material-ui-search-bar": "^1.0.0",
     "mongoose": "^5.3.16",
     "node-sass": "^4.14.1",
+    "particlesjs": "^2.2.3",
+    "react-particles-js": "^3.3.0",
     "react-router-dom": "^5.2.0",
     "react-typed": "^1.2.0"
   }

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import SearchBar from "material-ui-search-bar";
 import Search from "../youtube/search";
 
 export default (props) => {
@@ -20,13 +21,21 @@ export default (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div className="form-controls">
           <label>Search</label>
-          <input value={state.title} onChange={searchChange} id="videoSearch" type="text" placeholder="What are your interests?" />
+          <input value={state.title} onChange={searchChange} id="videoSearch" type="text" placeholder="What are your interests?" style={{
+        margin: '0 auto',
+        maxWidth: 800
+      }}/>
           <button>Submit</button>
         </div>
-      </form>
+      </form> */}
+       <SearchBar
+       value={state.title} onChange={searchChange} id="videoSearch" type="text" placeholder="What are your interests?"
+      onChange={() => console.log('onChange')}
+      onRequestSearch={() => console.log('onRequestSearch')}
+    />
     </div>
   )
 }
