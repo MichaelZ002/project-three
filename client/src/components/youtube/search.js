@@ -31,11 +31,13 @@ export default (props) => {
           <button>Submit</button>
         </div>
       </form> */}
-       <SearchBar
-       value={state.title} onChange={searchChange} id="videoSearch" type="text" placeholder="What are your interests?"
-      onChange={() => console.log('onChange')}
-      onRequestSearch={() => console.log('onRequestSearch')}
-    />
+
+      {/* code for MUI search bar */}
+      <SearchBar
+        value={state.title} onChange={searchChange} id="videoSearch" type="text" placeholder="What are your interests?"
+        onChange={() => console.log('onChange')}
+        onRequestSearch={() => console.log('onRequestSearch')}
+      />
     </div>
   )
 }
