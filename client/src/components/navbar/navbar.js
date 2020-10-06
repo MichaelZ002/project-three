@@ -24,23 +24,23 @@ import {
     },
 
     navbarDisplayFlex: {
-      display: `flex`,
-      justifyContent: `space-between`
+      display: "flex",
+      justifyContent: "space-between"
     },
     navListDisplayFlex: {
-      display: `flex`,
-      justifyContent: `space-between`
+      display: "flex",
+      justifyContent: "space-between"
     },
     linkText: {
-      textDecoration: `none`,
-      textTransform: `uppercase`,
-      color: `white`,
+      textDecoration: "none",
+      textTransform: "uppercase",
+      color: "white",
     }
   });
   
   const navLinks = [
-    { title: `Favorites`, path: `/favorite` },
-    { title: `Log Out`, path: `/sign-in` }
+    { title: "Favorites", path: "/favorite" },
+    { title: "Log Out", path: "/sign-in" }
   ];
   
   const Header = () => {

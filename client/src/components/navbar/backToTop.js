@@ -2,10 +2,11 @@ import * as React from "react";
 import { Zoom, useScrollTrigger } from "@material-ui/core";
 
 const style = {
-  position: `fixed`,
-  bottom: `50px`,
-  right: `100px`,
-  zIndex: `99`
+  position: "fixed",
+  bottom: "50px",
+  right: "100px",
+  zIndex: "99",
+  color:"tomato"
 };
 
 const BackToTop = ({ children }) => {
