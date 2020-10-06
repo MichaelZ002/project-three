@@ -26,6 +26,7 @@
     "bootstrap": "^4.5.2",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
+    "firebase": "^7.22.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
     "node-sass": "^4.14.1",
