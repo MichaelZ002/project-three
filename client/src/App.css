@@ -1,8 +1,26 @@
 #videoSearch {
-    width: 400px;
+  width: 400px;
+}
+#gradientAnchors {
+  font-size: 20px;
+  background: linear-gradient(#ee0979, #ff6a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#gradientAnchors:hover {
+
+  border-radius: 100%;
+  font-weight: 600;
+  text-shadow: -1px 0 0 #ee0979,
+        0 0 0 #ff6a00,
+        0 -1px 0 #ee0979,
+        -1px -1px 0 #ff6a00;;
+
 }
 
-.search-form {
+
+
+/* .search-form {
     border-bottom: 1px solid lightgray;
     display: flex;
     justify-content: flex-start;
@@ -33,7 +51,7 @@
   .form-controls label {
     display: none;
   }
-  
+   */
    
   
    

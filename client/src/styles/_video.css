@@ -1,0 +1,31 @@
+.video {
+  width: 300px;
+  box-shadow: 0 2px 1px #ff6a00;
+  border: 1px solid #ee0979;
+  border-radius: 2px;
+  margin-top: 50px;
+  margin-right: inherit;
+  margin-bottom: 20px;
+  margin-left: 15vw;
+  
+}
+
+.video > .title {
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+/* .vidList {
+  border-left: 1px solid rgb(240, 111, 36);
+  grid-row: span 2;
+  padding: 0 20px;
+  height: 100%;
+  overflow: auto;
+} */
+
+.video-player .video-iframe {
+  width: 100%;
+  height: 100%;
+}

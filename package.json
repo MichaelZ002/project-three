@@ -20,17 +20,26 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.31",
+    "@fortawesome/free-solid-svg-icons": "^5.15.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.18.1",
     "bootstrap": "^4.5.2",
+    "dayjs": "^1.9.1",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "firebase": "^7.22.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.3.16",
     "node-sass": "^4.14.1",
+    "react-gradient": "^1.0.2",
+    "react-hover-video-player": "^6.6.3",
     "react-router-dom": "^5.2.0",
-    "react-typed": "^1.2.0"
+    "react-slick": "^0.27.11",
+    "react-typed": "^1.2.0",
+    "react-youtube": "^7.12.0",
+    "slick-carousel": "^1.8.1"
   }
 }
