@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import Search from "../youtube/search";
 import API from "../../utils/youtube-api"
 import VideoList from "../youtube/videoList";
 import Slider from "../slider"
+import Navbar from "../navbar/navbar"
 import { STATES } from "mongoose";
-import Navbar from "../navbar/navbar";
 
 
 export default (props) => {
@@ -15,6 +14,7 @@ export default (props) => {
   })
 
   const onSearch = async searchWord => {
+    console.log(process.env.REACT_APP_YOUTUBE_API_KEY)
     const response = await API.get("/search", {
       params: {
         q: searchWord + " diy",
