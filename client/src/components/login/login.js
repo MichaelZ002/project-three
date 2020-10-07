@@ -58,7 +58,7 @@ const Login = () => {
                     <img src={Image} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="background" />
                 </Grid>
                 <Grid container className={classes.subcontainerRight} item xs={12} sm={6} alignItems="center" direction="column" justify="space-between" style={{ padding: 10 }}>
-                    {/* <Paper className={classes.loginBackground} variant="elevation" elevation={4}> */}
+                    
                     <div />
                     <div style={{ display: "flex", flexDirection: "column", maxWidth: 400, minWidth: 300 }}>
                         <Grid container justify="center" >
@@ -97,7 +97,7 @@ const Login = () => {
 
                     </div>
                     <div />
-                    {/* </Paper> */}
+            
                 </Grid>
 
             </Grid>

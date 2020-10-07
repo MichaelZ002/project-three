@@ -8,9 +8,7 @@ import Favorite from "./components/fav/favorite";
 
 
 
-function App() {
-  console.log(process.env.REACT_APP_YOUTUBE_API_KEY)
-  
+function App() {  
   return (
     <Router>
       <div className="App">

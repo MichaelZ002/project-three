@@ -1,10 +1,12 @@
-import React, {useState, useEffect} from "react";
-import SearchBar from "material-ui-search-bar";
-import Search from "../youtube/search";
+import React, { useState, useEffect } from "react";
+import { Button, TextField, } from "@material-ui/core";
+
+import MUIButton from "../button";
+
+
 
 export default (props) => {
-  const [state, setState] = useState({title: ""})
-  
+  const [state, setState] = useState({ title: "" })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,32 +14,20 @@ export default (props) => {
   }
 
   // update the state with every character the user types in the search
-  const searchChange = (e) => {
+  const searchtoState = (e) => {
     const searchWords = e.target.value
     console.log(searchWords)
-    setState({title: searchWords})
+    setState({ title: searchWords })
   }
 
-
   return (
-    <div>
-      {/* <form onSubmit={handleSubmit}>
-        <div className="form-controls">
-          <label>Search</label>
-          <input value={state.title} onChange={searchChange} id="videoSearch" type="text" placeholder="What are your interests?" style={{
-        margin: '0 auto',
-        maxWidth: 800
-      }}/>
-          <button>Submit</button>
+    <div style={{textAlign: "center"}}>
+      <form onSubmit={handleSubmit} noValidate autoComplete="off">
+        <div className="searchForm">
+          <TextField label="Search" color="secondary" value={state.title} onChange={searchtoState} id="videoSearch" type="text" placeholder="What are your interests?" />
+          <MUIButton onClick={handleSubmit}>Submit</MUIButton>
         </div>
-      </form> */}
-
-      {/* code for MUI search bar */}
-      <SearchBar
-        value={state.title} onChange={searchChange} id="videoSearch" type="text" placeholder="What are your interests?"
-        onChange={() => console.log('onChange')}
-        onRequestSearch={() => console.log('onRequestSearch')}
-      />
+      </form>
     </div>
   )
 }

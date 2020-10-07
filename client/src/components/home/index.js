@@ -1,14 +1,12 @@
+
 import React, { useState, useEffect } from "react";
 import Search from "../youtube/search";
 import API from "../../utils/youtube-api"
+import VideoList from "../youtube/videoList";
+import Slider from "../slider"
+import { STATES } from "mongoose";
 import Navbar from "../navbar/navbar";
-import banner from "../../images/bg.jpg";
-import {
-  Grid,
-  Card,
-  CardActionArea,
-  CardMedia,
-} from "@material-ui/core/";
+
 
 export default (props) => {
   const [videoState, setVideoState] = useState({
@@ -16,35 +14,47 @@ export default (props) => {
     vidID: null
   })
 
-  useEffect(() => {
-    onSearch()
-  }, [])
-
-  const onSearch = async keyword => {
+  const onSearch = async searchWord => {
     const response = await API.get("/search", {
       params: {
-        q: keyword + " diy"
+        q: searchWord + " diy",
+        kind: "youtube#video"
       }
     })
-    console.log(response)
+    scrollToVids()
+    setVideoState({
+      vidMetaData: response.data.items,
+      vidID: response.data.items[0].id.videoId
+    })
+    console.log(response.data.items)
   }
+
+  const vidSelected = videoId => {
+    setVideoState({
+      vidID: videoId
+    })
+  }
+
+  function scrollToVids() {
+    const elmnt = document.getElementById("myVidList");
+    elmnt.scrollIntoView();
+  }
+
   return (
     <>
-      <Navbar />
-      <Grid container justify="center"style={{backgroundColor: "#fff7e6"}} >
-        <Card >
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              alt="banner-image"
-              height="200"
-              image={banner}
-            >
-            </CardMedia>
-          </CardActionArea>
-        </Card>
-        <Search onSearch={onSearch} />
-      </Grid>
+      <div style={{ display: "inline-flex" }}>
+        <Navbar />
+      </div>
+      <div style={{ marginLeft: "25px" }}>
+        <h3 style={{ fontWeight: "bold", marginLeft: "10vw" }}>Whatever your interests, DIWHY not start a new project?</h3>
+        <Slider />
+        <div className="row">
+          <div className="col-md-12"><Search onSearch={onSearch} /></div>
+          <div id="myVidList" className="col-md-12">
+            <VideoList vidSelected={vidSelected} data={videoState.vidMetaData} /> 
+          </div>
+        </div>
+      </div>
     </>
   )
 }
