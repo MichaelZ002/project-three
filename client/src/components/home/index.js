@@ -3,7 +3,7 @@ import Search from "../youtube/search";
 import API from "../../utils/youtube-api"
 import VideoList from "../youtube/videoList";
 import Slider from "../slider"
-import Navbar from "../navbar"
+import Navbar from "../navbar/navbar"
 import { STATES } from "mongoose";
 
 
@@ -14,6 +14,7 @@ export default (props) => {
   })
 
   const onSearch = async searchWord => {
+    console.log(process.env.REACT_APP_YOUTUBE_API_KEY)
     const response = await API.get("/search", {
       params: {
         q: searchWord + " diy",
@@ -42,7 +43,7 @@ export default (props) => {
   return (
     <>
       <div style={{ display: "inline-flex" }}>
-        <Navbar style={{ marginRight: "25px" }} />
+        <Navbar />
       </div>
       <div style={{ marginLeft: "25px" }}>
         <h3 style={{ fontWeight: "bold", marginLeft: "10vw" }}>Whatever your interests, DIWHY not start a new project?</h3>

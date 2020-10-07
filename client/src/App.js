@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/login/login";
 import SignUp from "./components/login/signup";
 import Home from "./components/home/";
+import Favorite from "./components/fav/favorite";
+
 
 
 function App() {  
@@ -17,6 +19,7 @@ function App() {
               <Route path="/sign-in" component={Login} />
               <Route path="/sign-up" component={SignUp} />
               <Route path="/home" component={Home} />
+              <Route path="/favorite" component={Favorite} />
             </Switch>
           </div>
         </div>
