@@ -6,15 +6,13 @@ import { faTools } from '@fortawesome/free-solid-svg-icons';
 import {Link} from "react-router-dom"
 
 
-export default (props) => {
+export default () => {
   const titleStyle = {
     color: "white",
     background: 'linear-gradient(to left, #ee0979, #ff6a00)',
     fontWeight: 600,
     textShadow: "-1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000, -1px -1px 0 #000",
-    marginBottom: "10px",
     fontSize: 50,
-    margin: "10px",
     borderRadius: "20px",
     padding: "15px"
 

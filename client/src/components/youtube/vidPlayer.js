@@ -58,33 +58,83 @@ import React from 'react';
 // }
 
 
-// import Popup from 'reactjs-popup';
-// import 'reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
  
-// export default (props) => {
-//     console.log(props.myID)
-//   (
-//   <Popup trigger={<button> Trigger</button>} position="right center">
-//     <iframe width="560" height="315" src={`https://www.youtube.com/embed/${props.myID}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-//   </Popup>
+// export default ({ videoId }) => {
+//   return(
+//     <Popup trigger={<button> Trigger</button>} position="right center">
+//       <iframe width="560px" height="315px" src={`https://www.youtube.com/embed/${videoId}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+//     </Popup>
 // );
 //   }
+
+// export default () => (
+//   <Popup
+//     trigger={<button className="button"> Open Modal </button>}
+//     modal
+//     nested
+//   >
+//     {close => (
+//       <div className="modal">
+//         <button className="close" onClick={close}>
+//           &times;
+//         </button>
+//         <div className="header"> Modal Title </div>
+//         <div className="content">
+//           {' '}
+//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
+//           Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
+//           delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
+//           <br />
+//           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
+//           commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
+//           explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+//         </div>
+//         <div className="actions">
+//           <Popup
+//             trigger={<button className="button"> Trigger </button>}
+//             position="top center"
+//             nested
+//           >
+//             <span>
+//               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+//               magni omnis delectus nemo, maxime molestiae dolorem numquam
+//               mollitia, voluptate ea, accusamus excepturi deleniti ratione
+//               sapiente! Laudantium, aperiam doloribus. Odit, aut.
+//             </span>
+//           </Popup>
+//           <button
+//             className="button"
+//             onClick={() => {
+//               console.log('modal closed ');
+//               close();
+//             }}
+//           >
+//             close modal
+//           </button>
+//         </div>
+//       </div>
+//     )}
+//   </Popup>
+// );
 
 const Videoplayer = ({ videoId }) => {
   if (!videoId) {
     return (
       <p style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}>
-        Search for a video
+        No project ideas yet... :(
       </p>
     );
   }
   return (
     <div className="video-player">
-      <iframe
-        title={videoId}
-        className="video-iframe"
-        src={`https://www.youtube.com/embed/${videoId}`}
-      />
+       <iframe 
+        width="inherit" 
+        height="180px" 
+        src={`https://www.youtube.com/embed/${videoId}`} frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen="allowfullscreen">
+       </iframe>
     </div>
   );
 };

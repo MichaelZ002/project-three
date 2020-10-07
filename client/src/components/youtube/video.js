@@ -43,9 +43,9 @@ function createVidTiles(vidInfo, vidSelected) {
     return (
       <div style={{display: "inline-flex", width: "80vw"}}>
         
-          <div className="video" id="firstVid" key={index} onMouseOver={() => grabVideo(id, vidSelected)}>
-            <div style={vidStylez(snippet.thumbnails.high.url)} key={index} >
-            </div>
+          <div className="video" id="firstVid" key={index} onClick={() => grabVideo(id, vidSelected)}>
+            
+            <VidPlayer videoId={id.videoId}/>
             <p className="title">{snippet.title}</p>
           </div>
         
@@ -55,9 +55,11 @@ function createVidTiles(vidInfo, vidSelected) {
           <p style={{textDecoration: "italics"}}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>  
           <p>
             {snippet.description} 
-            <Link id="gradientAnchors" to={`https://www.youtube.com/watch?v=${id.videoId}`} target="blank">Read more</Link>
+            <Link id="gradientAnchors" to={`https://www.youtube.com/watch?v=${id.videoId}`} style={{marginLeft:"6px"}} target="blank">See more on Youtube</Link>
           </p>  
         </div>
+
+        
       </div>
     );
   });

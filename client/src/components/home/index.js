@@ -60,7 +60,7 @@ export default (props) => {
           <div className="col-md-12" style={{ marginTop: "45px", marginBottom: "35px"}}><Search onSearch={onSearch} /></div>
           <div id="myVidList" className="col-md-12">
             <VideoList vidSelected={vidSelected} data={videoState.vidMetaData} /> 
-            <VidPlayer videoId={videoState.vidID}/>
+            
           </div>
         </div>
       </div>
