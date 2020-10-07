@@ -2,7 +2,8 @@ import React from "react";
 import Typed from "react-typed";
 import { Typography } from "@material-ui/core";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFileExcel, faTools } from '@fortawesome/free-solid-svg-icons';
+import { faTools } from '@fortawesome/free-solid-svg-icons';
+import {Link} from "react-router-dom"
 
 
 export default (props) => {
@@ -19,10 +20,10 @@ export default (props) => {
 
   }
   return (
-    <a href="/home" style={{ display: "inline-flex", textDecoration: "none" }}>
+    <Link to="/home" style={{ display: "inline-flex", textDecoration: "none" }}>
       <FontAwesomeIcon style={titleStyle} icon={faTools} />
       <Typography component="h1" style={titleStyle} variant="h3"><Typed strings={["DIWHY", "DIWHY"]} typeSpeed={40} backSpeed={60} loop />
       </Typography>
-    </a>
+    </Link>
   )
 }
