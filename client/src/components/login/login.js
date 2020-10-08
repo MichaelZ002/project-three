@@ -9,10 +9,10 @@ import Typed from "react-typed";
 const useStyles = makeStyles(() => ({
 
     title: {
-        color: "tan",
+        color: "#EE0979",
     },  
     subcontainerRight: {
-        background: 'linear-gradient(to right bottom, #000000, #8c8c8c)'
+        background: 'linear-gradient(to right bottom, #fff, #fff, #ffb84d)'
 
     },
     loginBackground: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles(() => ({
 const InputField = withStyles({
     root: {
         "& label.Mui-focused": {
-            color: "tan",
+            color: "black",
         },
         "& label": {
             color: "tomato",
@@ -38,7 +38,7 @@ const InputField = withStyles({
                 borderColor: "tomato",
             },
             "& .Mui-focused fieldset": {
-                borderColor: "tan",
+                borderColor: "black",
             },
         },
 
@@ -67,7 +67,7 @@ const Login = () => {
                         </Grid>
                         <br />
                         <Grid container justify="center" >
-                            <Typography component="h1" variant="h5" style={{ color: "#bcc2d7" }} >Sign In
+                            <Typography component="h1" variant="h5" style={{ color: "black" }} >Sign In
                                 </Typography>
                         </Grid>
                         <InputField
@@ -75,7 +75,7 @@ const Login = () => {
                             margin="normal"
                             variant="outlined"
                             id="username"
-                            InputProps={{ style: { color: "white" }, startAdornment: <InputAdornment position="start" style={{ color: "tan" }}><AccountCircle /></InputAdornment> }}
+                            InputProps={{ startAdornment: <InputAdornment position="start"><AccountCircle /></InputAdornment> }}
                         />
                         <InputField
                             type="password"
@@ -83,15 +83,15 @@ const Login = () => {
                             label="Password"
                             id="password"
                             margin="normal"
-                            InputProps={{ style: { color: "white" }, startAdornment: <InputAdornment position="start" style={{ color: "tan" }}><LockRounded /></InputAdornment> }}
+                            InputProps={{ startAdornment: <InputAdornment position="start"><LockRounded /></InputAdornment> }}
                         />
 
                         <FormControlLabel
-                            control={<Checkbox value="remember" style={{ color: "tan" }} />}
-                            label="Remember me" style={{ color: "tan" }}
+                            control={<Checkbox value="remember" style={{ color: "black" }} />}
+                            label="Remember me" style={{ color: "black" }}
                         />
                         <div style={{ height: 20 }} />
-                        <Button color="primary" variant="contained" style={{ backgroundColor: "#ffc107" }}>Log In</Button>
+                        <Button color="primary" variant="contained" style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}>Log In</Button>
                         <div style={{ height: 20 }} />
                         <a href="/sign-up">Not registered, Sign up</a>
 

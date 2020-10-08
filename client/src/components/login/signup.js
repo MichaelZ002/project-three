@@ -10,10 +10,10 @@ import Typed from "react-typed";
 const useStyles = makeStyles(() => ({
 
     title: {
-        color: "tan"
+        color: "#EE0979"
     },
     subcontainerRight: {
-        background: 'linear-gradient(to right bottom, #000000, #8c8c8c)'
+        background: 'linear-gradient(to right bottom, #fff, #fff, #ffb84d)'
 
     },
     loginBackground: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
 const InputField = withStyles({
     root: {
         "& label.Mui-focused": {
-            color: "tan",
+            color: "black",
         },
         "& label": {
             color: "tomato",
@@ -39,13 +39,12 @@ const InputField = withStyles({
                 borderColor: "tomato",
             },
             "& .Mui-focused fieldset": {
-                borderColor: "tan",
+                borderColor: "black",
             },
         },
 
     },
 })(TextField);
-
 
 
 
@@ -67,7 +66,7 @@ const Signup = ()=> {
                            </Grid>
                            <br />
                            <Grid container justify="center" >
-                           <Typography component="h1" variant="h5" style={{color:"#bcc2d7"}} >Sign Up
+                           <Typography component="h1" variant="h5" style={{color:"black"}} >Sign Up
                            </Typography>
                            </Grid>
                            <InputField 
@@ -75,14 +74,14 @@ const Signup = ()=> {
                            margin="normal" 
                            style={{ color: "tan" }}
                            variant="outlined"
-                           InputProps={{ style: { color: "white" }, startAdornment: <InputAdornment position="start" style={{ color: "tan" }}><AccountCircle /></InputAdornment>}}
+                           InputProps={{ startAdornment: <InputAdornment position="start" ><AccountCircle /></InputAdornment>}}
                            
                            />
                            <InputField 
                            label="Last name" 
                            margin="normal" 
                            variant="outlined"
-                           InputProps={{ style: { color: "white" }, startAdornment: <InputAdornment position="start" style={{ color: "tan" }}><AccountCircle /></InputAdornment>}}
+                           InputProps={{ startAdornment: <InputAdornment position="start" ><AccountCircle /></InputAdornment>}}
                            
                            />
                            <InputField 
@@ -90,7 +89,7 @@ const Signup = ()=> {
                            margin="normal"
                            variant="outlined" 
                            color="tan"
-                           InputProps={{ style: { color: "white" }, startAdornment: <InputAdornment position="start" style={{ color: "tan" }}><EmailRounded/></InputAdornment>}}
+                           InputProps={{ startAdornment: <InputAdornment position="start" ><EmailRounded/></InputAdornment>}}
                            
                            />
                            <InputField 
@@ -98,11 +97,11 @@ const Signup = ()=> {
                            label="Password" 
                            margin="normal" 
                            variant="outlined"
-                           InputProps={{ style: { color: "white" },startAdornment: <InputAdornment position="start" style={{ color: "tan" }}><LockRounded /></InputAdornment>}}
+                           InputProps={{ startAdornment: <InputAdornment position="start" ><LockRounded /></InputAdornment>}}
                            
                            />
                            <div style={{ height: 20}} />
-                           <Button color="primary" variant="contained" style={{ backgroundColor: "#ffc107" }}>Sign Up</Button>
+                           <Button color="primary" variant="contained" style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}>Sign Up</Button>
                            <div style={{ height: 20}} />
                            <a href="/sign-in">Already registered? Login here</a>
                            

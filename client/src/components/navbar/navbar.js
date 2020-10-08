@@ -19,7 +19,7 @@ import {
   const useStyles = makeStyles({
     
     appbarStyle: {
-        background: 'linear-gradient(to right bottom, #ffc107, #8c8c8c)'
+        background: "linear-gradient(to left, #EE0979, #FF6A00)"
 
     },
 
@@ -40,9 +40,10 @@ import {
   
   const navLinks = [
     { title: "Favorites", path: "/favorite" },
+    { title: "My Projects", path: "/project" },
     { title: "Log Out", path: "/sign-in" }
   ];
-  
+
   const Header = () => {
     const classes = useStyles();
   
