@@ -121,63 +121,63 @@
 
 
 // USE FROM HERE IF HOVER DOES NOT WORK
-// import React from "react";
-// const Videoplayer = ({ videoId }) => {
-//   if (!videoId) {
-//     return (
-//       <p style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}>
-//         No project ideas yet... :(
-//       </p>
-//     );
-//   }
-//   return (
-//     <div className="video-player">
-//        <iframe 
-//         width="inherit" 
-//         height="180px" 
-//         src={`https://www.youtube.com/embed/${videoId}`} frameborder="0" 
-//         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen="allowfullscreen">
-//        </iframe>
-//     </div>
-//   );
-// };
+import React from "react";
+const Videoplayer = ({ videoId }) => {
+  if (!videoId) {
+    return (
+      <p style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}>
+        No project ideas yet... :(
+      </p>
+    );
+  }
+  return (
+    <div className="video-player">
+       <iframe 
+        width="inherit" 
+        height="180px" 
+        src={`https://www.youtube.com/embed/${videoId}`} frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen="allowfullscreen">
+       </iframe>
+    </div>
+  );
+};
 
-// export default Videoplayer;
+export default Videoplayer;
 
 // import 'node_modules/react-modal-video/scss/modal-video.scss';
-import React,{useState} from 'react'
-import ReactDOM from 'react-dom'
-import ModalVideo from 'react-modal-video'
+// import React,{useState} from 'react'
+// import ReactDOM from 'react-dom'
+// import ModalVideo from 'react-modal-video'
  
-const App = ({ videoId, index, snippet }) => {
-  function getCss(imageurl) {
-    const _styles = {
-      backgroundImage: `url(${imageurl})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
-      height: "180px",
-      position: "relative"
-    };
-    return _styles;
-  }
+// const App = ({ videoId, index, snippet, changeModalState }) => {
+//   function getCss(imageurl) {
+//     const _styles = {
+//       backgroundImage: `url(${imageurl})`,
+//       backgroundSize: "cover",
+//       backgroundPosition: "center center",
+//       height: "180px",
+//       position: "relative"
+//     };
+//     return _styles;
+//   }
  
-    const [isOpen, setOpen] = useState(false)
+    
  
-    return (
-        <>
-            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={videoId} onClose={() => setOpen(false)} />
-            <div className="video-player" >
-              <div style={getCss(snippet)} key={index} onClick={()=> setOpen(true)}></div>
-            </div>
+//     return (
+//         <>
+//             <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={videoId} onClose={() => setOpen(false)} />
+//             <div className="video-player" >
+//               <div style={getCss(snippet)} key={index} onClick={()=> setOpen(true)}></div>
+//             </div>
             
-        </>
-    )
-}
+//         </>
+//     )
+// }
  
-ReactDOM.render(
-  <App />,
-    document.getElementById('root')
-)
+// ReactDOM.render(
+//   <App />,
+//     document.getElementById('root')
+// )
  
-export default App;
+// export default App;
   
