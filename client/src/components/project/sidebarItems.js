@@ -6,20 +6,12 @@ export default {
       },
       {
         "name": "Project2",
-        "url": "/project22"
+        "url": "/project2"
       },
       {
         "name": "Project3",
-        "children": [
-          {
-            "name": "Child31",
-            "url": "/child31"
-          },
-          {
-            "name": "Child32",
-            "url": "/child32"
-          },
-        ]
+        "url": "/project3"
+       
       }, 
     ]
   }

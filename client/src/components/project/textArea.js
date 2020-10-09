@@ -5,6 +5,8 @@ export default function TextArea() {
   return (
     <TextareaAutosize
       rowsMin={10}
+      style={{width:"80%"}}
+    
       aria-label="minimum height"
       placeholder="Type here"
     />
