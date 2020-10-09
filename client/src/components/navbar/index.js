@@ -1,5 +1,6 @@
 import React from "react"
 import Title from "../title"
+import {Link} from "react-router-dom"
 
 export default () => {
 
@@ -11,9 +12,9 @@ export default () => {
             </button>
             <div className="collapse navbar-collapse navbar-right" id="navbarNavAltMarkup">
                 <div className="navbar-nav ml-auto">
-                    <a className="nav-link text-dark" href="/home">Home </a>
-                    <a className="nav-link text-dark" href="#">Starred</a>
-                    <a className="nav-link text-dark" href="#">My Projects</a>
+                    <Link className="nav-link text-dark" to="/home">Home </Link>
+                    <Link className="nav-link text-dark" to="#">Starred</Link>
+                    <Link className="nav-link text-dark" to="#">My Projects</Link>
                 </div>
             </div>
         </nav>

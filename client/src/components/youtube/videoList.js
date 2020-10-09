@@ -2,11 +2,7 @@ import React from "react";
 import Video from "./video";
 import ShowVideo from "../youtube/vidPlayer"
 
-// {videos.map(() => {
-//   <li>
-//       <Video />
-//   </li>
-// })}
+
 export default function VideoList({ data, vidSelected }) {
   return (
     <div className="vidList">
