@@ -53,7 +53,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [error, setError] = useState(null);
-  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+  const createUser = (event, email, password) => {
     event.preventDefault();
     setEmail("");
     setPassword("");
@@ -63,7 +63,7 @@ const Signup = () => {
     const { name, value } = event.currentTarget;
     if (name === "userEmail") {
       setEmail(value);
-    } else if (name === "userPassword") {
+    } else if (name === "password") {
       setPassword(value);
     } else if (name === "customerName") {
       setCustomerName(value);
@@ -158,6 +158,7 @@ const Signup = () => {
               type="password"
               label="Password"
               name="password"
+              value={password}
               margin="normal"
               variant="outlined"
               onChange={event => onChangeHandler(event) }
@@ -175,6 +176,9 @@ const Signup = () => {
               color="primary"
               variant="contained"
               style={{ backgroundColor: "#ffc107" }}
+              onClick={event => {
+                createUser(event, email, password);
+              }}
             >
               Sign Up
             </Button>
