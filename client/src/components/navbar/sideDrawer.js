@@ -13,7 +13,7 @@ import {
   const useStyles = makeStyles({
     list: {
       width: 250,
-      background: 'linear-gradient(to right bottom, #ffc107, #8c8c8c)',
+      background: "linear-gradient(to left, #EE0979, #FF6A00)",
       height: "100%"
     },
     linkText: {

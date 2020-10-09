@@ -6,6 +6,7 @@ import Login from "./components/login/login";
 import SignUp from "./components/login/signup";
 import Home from "./components/home/";
 import Favorite from "./components/fav/favorite";
+import Project from "./components/project/project";
 
 
 
@@ -21,6 +22,7 @@ function App() {
               <Route path="/sign-up" component={SignUp} />
               <Route path="/home" component={Home} />
               <Route path="/favorite" component={Favorite} />
+              <Route path="/project" component={Project} />
             </Switch>
           </div>
         </div>
