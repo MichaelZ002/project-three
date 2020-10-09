@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
     },
     drawer : {
       paddingTop : "20px",
-      width: "200px",
-      marginTop:"68px",
+      width: "15%",
+      marginTop:"100px",
       borderWidth: "2px",
       borderColor: "#f50057 !important"
     },

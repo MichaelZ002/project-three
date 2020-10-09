@@ -2,7 +2,6 @@ import {
     AppBar,
     Container,
     Hidden,
-    IconButton,
     List,
     ListItem,
     ListItemText,
@@ -10,11 +9,13 @@ import {
     Toolbar,
     Fab
   } from "@material-ui/core";
-  import { Home, KeyboardArrowUp } from "@material-ui/icons";
+  import { KeyboardArrowUp } from "@material-ui/icons";
   import * as React from "react";
   import HideOnScroll from "./hideOnScroll";
   import SideDrawer from "./sideDrawer";
   import BackToTop from "./backToTop";
+  import Title from "../title";
+  import {Link} from "react-router-dom"
   
   const useStyles = makeStyles({
     
@@ -50,15 +51,10 @@ import {
     return (
       <>
         <HideOnScroll>
-          <AppBar position="fixed" className={classes.appbarStyle}>
-            <Toolbar component="nav">
-              <Container maxWidth="md" className={classes.navbarDisplayFlex}>
-                <IconButton edge="start" aria-label="home">
-                  <a href="/home" style={{ color: 'white' }}>
-                    <Home fontSize="large" />
-                  </a>
-                </IconButton>
-  
+          <AppBar style={{paddingLeft: "0", marginLeft: "0", marginBottom: "50px"}} position="fixed" className={classes.appbarStyle}>
+            <Toolbar style={{paddingLeft: "0", marginLeft: "0"}} component="nav">
+              <Container className={classes.navbarDisplayFlex} style={{maxWidth: "100vw"}}>
+                <Title />
                 <Hidden smDown>
                   <List
                     component="nav"
@@ -66,11 +62,11 @@ import {
                     className={classes.navListDisplayFlex}
                   >
                     {navLinks.map(({ title, path }) => (
-                      <a href={path} key={title} className={classes.linkText}>
-                        <ListItem button>
+                      <Link to={path} key={title} className={classes.linkText} style={{ marginTop: "auto", marginBottom: "auto"}}>
+                        <ListItem button style={{marginTop: "auto", marginBottom: "auto"}}>
                           <ListItemText primary={title} />
                         </ListItem>
-                      </a>
+                      </Link>
                     ))}
                   </List>
                 </Hidden>

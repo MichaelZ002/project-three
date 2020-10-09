@@ -1,67 +1,83 @@
 import React from 'react';
-import { Box, Button, Grid, Paper, TextField, Typography, FormControlLabel, Checkbox} from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
 import Navbar from "../navbar/navbar";
 import SideBar from './sidebar';
 import ReactPlayer from 'react-player'
 import { makeStyles } from '@material-ui/styles';
-import TextareaAutosize from './textArea';
-import { ThemeProvider } from '@material-ui/core/styles';
-import Theme from './theme';
+import ToDoList from "./index";
 
 
-const useStyles = makeStyles(theme => ({
-    textarea : {
-        padding : "20px",
-        width: "500px",
+const useStyles = makeStyles((theme) => ({
+
+    textarea: {
+        top: 0,
+        marninLeft: "15px",
+        width: "100%",
+        height: "100%",
+    },
+    wrapper: {
+        position: "relative",
+        paddingTop: "56.25%"
+    },
+
+    player: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+    },
+    paper: {
+        textAlign: 'center',
+        backgroundColor: "#fff5e6",
+        minHeight: "175px"
+
     },
 
 
 }));
 
 
-const Project = ()=> {
-    const classes  = useStyles();
-    let factor = 0.3;
+const Project = () => {
+    const classes = useStyles();
     return (
         <>
-        
+
             < Navbar />
-            < SideBar />
-            <Grid container spacing={3}> 
-                    <Grid item xs={12} sm={6} style={{marginTop: "15px"}}>
-                        {/* <div id="projectVideo">
-                            <ReactPlayer url='https://www.youtube.com/watch?v=ynDv4V9OtWY' playing />
-                        </div> */}
+            <Grid container spacing={2}>
+                <Grid item xs={2} sm={2}>
+                    < SideBar />
+                </Grid>
 
-<div
-      className="video"
-      style={{
-        position: "relative",
-        paddingBottom: "56.25%" /* 16:9 */,
-        paddingTop: 25,
-        height: 0
-      }}
-    >
-      <iframe
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%"
-        }}
-        src={`https://www.youtube.com/embed/jByKArMfutQ`}
-        frameBorder="0"
-      />
-    </div>
-
-
-
-                    </Grid>
-                    <Grid item xs={12} sm={6}  style={{marginTop: "15px"}}>
-                        <h2>Notes</h2>
-                        < TextareaAutosize className={classes.textarea}/>
-                   </Grid>
+                <Grid item xs={10} sm={5} style={{ marginTop: "35px" }}>
+                    <div className={classes.wrapper}>
+                        <ReactPlayer
+                            className={classes.player}
+                            playing
+                            url={`https://www.youtube.com/embed/jByKArMfutQ`}
+                            width='100%'
+                            height='100%'
+                        />
+                    </div>
+                </Grid>
+                <Grid item xs={2} sm={1} style={{ marginTop: "35px" }}>
+                    < div />
+                </Grid>
+                <Grid item xs={10} sm={4} style={{ marginTop: "35px" }} justify="center">
+                    <Paper className={classes.paper} elevation="5">
+                        <h3>Materials Needed</h3>
+                        < ToDoList />
+                    </Paper>
+                </Grid>
+                <Grid item xs={2} sm={2} style={{ marginTop: "35px" }}>
+                    < div />
+                </Grid>
+                <Grid item xs={10} sm={10} style={{ marginTop: "35px" }} justify="center">
+                    <Paper className={classes.paper} elevation="5">
+                        <h3>Blue prints for my project</h3>
+                        < ToDoList />
+                    </Paper>
+                </Grid>
             </Grid>
 
         </>
