@@ -49,7 +49,7 @@ const Project = () => {
                     < SideBar />
                 </Grid>
 
-                <Grid item xs={10} sm={5} style={{ marginTop: "35px" }}>
+                <Grid item xs={10} sm={10} md={5}style={{ marginTop: "35px" }}>
                     <div className={classes.wrapper}>
                         <ReactPlayer
                             className={classes.player}
@@ -60,10 +60,10 @@ const Project = () => {
                         />
                     </div>
                 </Grid>
-                <Grid item xs={2} sm={1} style={{ marginTop: "35px" }}>
+                <Grid item xs={2} sm={2} md={1} style={{ marginTop: "35px" }}>
                     < div />
                 </Grid>
-                <Grid item xs={10} sm={4} style={{ marginTop: "35px" }} justify="center">
+                <Grid item xs={10} sm={10} md={4}style={{ marginTop: "35px" }} justify="center">
                     <Paper className={classes.paper} elevation="5">
                         <h3>Materials Needed</h3>
                         < ToDoList />
@@ -74,7 +74,7 @@ const Project = () => {
                 </Grid>
                 <Grid item xs={10} sm={10} style={{ marginTop: "35px" }} justify="center">
                     <Paper className={classes.paper} elevation="5">
-                        <h3>Blue prints for my project</h3>
+                        <h3>Blue prints of my project</h3>
                         < ToDoList />
                     </Paper>
                 </Grid>
