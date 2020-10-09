@@ -5,9 +5,10 @@ import { Gradient } from 'react-gradient';
 import VidPlayer from "../youtube/vidPlayer";
 import {Link} from "react-router-dom"
 
-function grabVideo(vidIdObj, vidSelected) {
-  vidSelected(vidIdObj.videoId);
-}
+// function grabVideo(vidIdObj, vidSelected) {
+//   vidSelected(vidIdObj.videoId);
+// }
+// onClick={() => grabVideo(id, vidSelected)} (put this inside the video div)
 function vidStylez(imageurl) {
   const stylez = {
     position: "relative",
@@ -41,11 +42,11 @@ function createVidTiles(vidInfo, vidSelected) {
   if (vidInfo) {
   return vidInfo.map(({ snippet, id }, index) => {
     return (
-      <div style={{display: "inline-flex", width: "80vw"}}>
+      <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}}>
         
-          <div className="video" id="firstVid" key={index} onClick={() => grabVideo(id, vidSelected)}>
+          <div className="video" id="firstVid" key={index} /* onclick here  */ >
             
-            <VidPlayer videoId={id.videoId}/>
+            <VidPlayer snippet={snippet.thumbnails.high.url} index={index} videoId={id.videoId}/>
             <p className="title">{snippet.title}</p>
           </div>
         
