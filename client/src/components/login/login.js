@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 import {
   Button,
   Grid,
@@ -61,12 +62,12 @@ const Login = () => {
     event.preventDefault();
   };
   
-  const handleInputChange = (event) => {
+  const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
   
-    if (name === "userEmail") {
+    if (name === "email") {
       setEmail(value);
-    } else if (name === "userPassword") {
+    } else if (name === "password") {
       setPassword(value);
     }
   };
@@ -125,11 +126,12 @@ const Login = () => {
               </Typography>
             </Grid>
             <InputField
-              label="Username"
+              label="email"
               margin="normal"
               variant="outlined"
-              id="username"
-            //   value={email}
+              name="email"
+              id="email"
+              value={email}
               InputProps={{
                 style: { color: "white" },
                 startAdornment: (
@@ -138,14 +140,15 @@ const Login = () => {
                   </InputAdornment>
                 ),
               }}
-              onChange={handleInputChange}
+              onChange={(event) => onChangeHandler(event)}
             />
             <InputField
               type="password"
               variant="outlined"
               label="Password"
               id="password"
-            //   value={password}
+              name="password"
+              value={password}
               margin="normal"
               InputProps={{
                 style: { color: "white" },
@@ -155,7 +158,7 @@ const Login = () => {
                   </InputAdornment>
                 ),
               }}
-              onChange={handleInputChange}
+              onChange={(event) => onChangeHandler(event)}
             />
 
             <FormControlLabel
@@ -175,7 +178,7 @@ const Login = () => {
               Log In
             </Button>
             <div style={{ height: 20 }} />
-            <a href="/sign-up">Not registered, Sign up</a>
+            <Link to="/sign-up">Not registered, Sign up</Link>
           </div>
           <div />
         </Grid>
