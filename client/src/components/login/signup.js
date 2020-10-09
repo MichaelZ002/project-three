@@ -53,7 +53,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [error, setError] = useState(null);
-  const createUser = (event, email, password) => {
+  const createUserWithEmailAndPassword = (event, email, password) => {
     event.preventDefault();
     setEmail("");
     setPassword("");
@@ -177,7 +177,7 @@ const Signup = () => {
               variant="contained"
               style={{ backgroundColor: "#ffc107" }}
               onClick={event => {
-                createUser(event, email, password);
+                createUserWithEmailAndPassword(event, email, password);
               }}
             >
               Sign Up
