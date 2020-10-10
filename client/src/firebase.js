@@ -1,6 +1,5 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
-import "firebase/firestore";
 
 
 const firebaseConfig = {
@@ -17,6 +16,6 @@ const firebaseConfig = {
 export const fire = firebase.initializeApp(firebaseConfig);
 
 export const auth = fire.auth();
-export const firestore = fire.firestore();
+// export const firestore = fire.firestore();
 console.log(auth)
 console.log(`Firebase Loaded!`)
