@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import {
   Button,
   Grid,
@@ -13,6 +13,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import {EmailRounded, LockRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
+import {auth} from "../../firebase" 
 
 const useStyles = makeStyles(() => ({
 
@@ -56,6 +57,7 @@ const InputField = withStyles({
 // export default class Login extends Component {
 
 const Login = () => {
+const history = useHistory()
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -174,8 +176,11 @@ const Login = () => {
               variant="contained"
               style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
               onClick={(event) => {
-                signInWithEmailAndPasswordHandler(event, email, password);
-              }}
+                auth.signInWithEmailAndPassword(email, password)
+                .then(data => history.push('/home')                
+                )
+                .catch(err => console.log(err))
+            }}
             >
               Log In
             </Button>

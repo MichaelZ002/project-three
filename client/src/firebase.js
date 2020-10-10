@@ -1,6 +1,7 @@
-import firebase from "firebase/app";
+import * as firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBkMMtf2kahTKJ8G2TxOLqV11JXl0F8Yd0",
@@ -13,8 +14,9 @@ const firebaseConfig = {
   measurementId: "G-J5ZCNKHVS9",
 };
 
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+export const fire = firebase.initializeApp(firebaseConfig);
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+export const auth = fire.auth();
+export const firestore = fire.firestore();
+console.log(auth)
+console.log(`Firebase Loaded!`)

@@ -1,6 +1,7 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import UserProvider from "./prov/UserProvider";
 
 import Login from "./components/login/login";
 import SignUp from "./components/login/signup";
@@ -8,9 +9,7 @@ import Home from "./components/home/";
 import Favorite from "./components/fav/favorite";
 import Project from "./components/project/project";
 
-
-
-function App() {  
+function App() {
   return (
     <Router>
       <div className="App">
@@ -26,8 +25,8 @@ function App() {
             </Switch>
           </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </UserProvider>
   );
 }
 
