@@ -11,6 +11,7 @@ import Project from "./components/project/project";
 
 function App() {
   return (
+    <UserProvider>
     <Router>
       <div className="App">
         <div className="auth-wrapper">
@@ -25,6 +26,7 @@ function App() {
             </Switch>
           </div>
         </div>
+      </div>
       </Router>
     </UserProvider>
   );
