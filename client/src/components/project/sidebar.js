@@ -46,10 +46,10 @@ const SideBar = (props) => {
     const [ menu, setMenu ] = useState({});
     const { className, ...rest } = props;
     const classes  = useStyles();
-    const handleClick = (item) => {
-        let newData = {...menu, [item] : !menu[item]};
-        setMenu(newData);
-    }
+    // const handleClick = (item) => {
+    //     let newData = {...menu, [item] : !menu[item]};
+    //     setMenu(newData);
+    // }
     const CustomRouterLink = forwardRef((props, ref) => (
       <div ref={ref} style={{ flexGrow: 1 }}>
         <RouterLink {...props} />
@@ -87,7 +87,7 @@ const SideBar = (props) => {
                 className={classes.item}
                 disableGutters
                 key={name}
-                onClick={() => handleClick(name)}
+                // onClick={() => handleClick(name)}
               >
                 <Button
                 className={clsx({

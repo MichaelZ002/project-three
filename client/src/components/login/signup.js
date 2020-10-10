@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom";
 import {
   Button,
   Grid,
@@ -11,62 +11,53 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { AccountCircle, LockRounded, EmailRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
-import {auth} from "../../firebase" 
+import { auth } from "../../firebase";
 
 const useStyles = makeStyles(() => ({
-
   title: {
-      color: "#EE0979",
-  },  
+    color: "#EE0979",
+  },
   subcontainerRight: {
-      background: 'linear-gradient(to right bottom, #fff, #fff, #ffb84d)'
-
+    background: "linear-gradient(to right bottom, #fff, #fff, #ffb84d)",
   },
   loginBackground: {
-      justify: "center",
-      minHeight: "30vh",
-      padding: "50px"
-  }
-}))
+    justify: "center",
+    minHeight: "30vh",
+    padding: "50px",
+  },
+}));
 
 const InputField = withStyles({
   root: {
-      "& label.Mui-focused": {
-          color: "black",
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& label": {
+      color: "tomato",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "gray",
       },
-      "& label": {
-          color: "tomato",
+      "&:hover fieldset": {
+        borderColor: "tomato",
       },
-      "& .MuiOutlinedInput-root": {
-          "& fieldset": {
-              borderColor: "gray",
-          },
-          "&:hover fieldset": {
-              borderColor: "tomato",
-          },
-          "& .Mui-focused fieldset": {
-              borderColor: "black",
-          },
+      "& .Mui-focused fieldset": {
+        borderColor: "black",
       },
-
+    },
   },
 })(TextField);
 
 const Signup = () => {
-  const history = useHistory()
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [error, setError] = useState(null);
-  const createUserWithEmailAndPassword = (event, email, password) => {
-    event.preventDefault();
-    setEmail("");
-    setPassword("");
-    setCustomerName("");
-  };
   const onChangeHandler = (event) => {
-    const { name, value } = event.currentTarget;
-    if (name === "userEmail") {
+    const { name, email, password, value } = event.currentTarget;
+    if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
@@ -132,7 +123,7 @@ const Signup = () => {
               placeholder="Your Name Here"
               margin="normal"
               variant="outlined"
-              onChange={event => onChangeHandler(event) }
+              onChange={onChangeHandler}
               InputProps={{
                 style: { color: "black" },
                 startAdornment: (
@@ -147,8 +138,9 @@ const Signup = () => {
               margin="normal"
               name="email"
               placeholder="Your Email Here"
-              onChange={event => onChangeHandler(event) }
+              onChange={onChangeHandler}
               variant="outlined"
+              value={email}
               InputProps={{
                 style: { color: "black" },
                 startAdornment: (
@@ -165,7 +157,7 @@ const Signup = () => {
               value={password}
               margin="normal"
               variant="outlined"
-              onChange={event => onChangeHandler(event) }
+              onChange={onChangeHandler}
               InputProps={{
                 style: { color: "black" },
                 startAdornment: (
@@ -179,11 +171,16 @@ const Signup = () => {
             <Button
               color="primary"
               variant="contained"
-              style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
-              onClick={event => {
-                auth.createUserWithEmailAndPassword(event, email, password)
-                .then(data => history.push('/home'))
+              style={{
+                background: "linear-gradient(to left, #ee0979, #ff6a00)",
               }}
+              onClick={auth
+                .createUserWithEmailAndPassword(email, password)
+                .then((data) => {
+                  console.log(data.user.uid);
+                  history.push("/home");
+                })
+                .catch((err) => console.log(err))}
             >
               Sign Up
             </Button>

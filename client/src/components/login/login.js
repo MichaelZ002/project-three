@@ -174,7 +174,10 @@ const history = useHistory()
               style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
               onClick={(event) => {
                 auth.signInWithEmailAndPassword(email, password)
-                .then(data => history.push('/home')                
+                .then(data => {
+                    console.log(data.user.uid);
+                    history.push('/home')
+                }                
                 )
                 .catch(err => console.log(err))
             }}
