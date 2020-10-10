@@ -135,7 +135,7 @@ const Login = () => {
               id="email"
               value={email}
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <EmailRounded />
@@ -153,7 +153,7 @@ const Login = () => {
               value={password}
               margin="normal"
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <LockRounded />

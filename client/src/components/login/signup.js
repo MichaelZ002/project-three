@@ -132,7 +132,7 @@ const Signup = () => {
               variant="outlined"
               onChange={event => onChangeHandler(event) }
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <AccountCircle />
@@ -149,7 +149,7 @@ const Signup = () => {
               variant="outlined"
               color="tan"
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <EmailRounded />
@@ -166,7 +166,7 @@ const Signup = () => {
               variant="outlined"
               onChange={event => onChangeHandler(event) }
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <LockRounded />
