@@ -53,17 +53,19 @@ function getCss(imageurl) {
 
 
 // let myColors = Gradient('#ee0979', '#ff6a00', 20).toArray('rgbString');
-function writeToDB(id){
-  let vidURL = `https://www.youtube.com/watch?v=${id.videoId}`
-  console.log(vidURL)
 
-}
 
 
 function createVidTiles(vidInfo, vidSelected) {
   console.log("my vidInfo " + vidInfo)
   if (vidInfo) {
   return vidInfo.map(({ snippet, id }, index) => {
+    
+    const writeToDB = () => {
+      let vidURL = `https://www.youtube.com/watch?v=${id.videoId}`
+      console.log(vidURL)
+    
+    }
     const [isOpen, setOpen] = useState(false)
     return (
       <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}}>
@@ -78,7 +80,7 @@ function createVidTiles(vidInfo, vidSelected) {
         
         
         <div className="videoInfo" style={wordStylez}>
-          <button onClick={writeToDB(id)} >
+          <button onClick={writeToDB} >
         <FontAwesomeIcon  icon={faHeart} style={{color: "red", fontSize: "25px", marginTop: "0"}}/>
         </button>
           <h4 style={{textDecoration: "bold"}}>{snippet.channelTitle}</h4>
