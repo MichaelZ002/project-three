@@ -18,13 +18,6 @@ export default (props) => {
   const [textState, setTextState] = useState({
     searchText: "Your Next Project Is Waiting Beneath the Fold..."
   })
-  // function idGrabbr(itemsArr){
-  //   let allIDs = []
-  //   for(let i=0; i< itemsArr.length; i++) {
-  //     allIDs.push(itemsArr[i].id.videoId)
-  //   }
-  //   return allIDs
-  // }
 
   const onSearch = async (searchWord) => {
     const response = await API.get("/search", {
