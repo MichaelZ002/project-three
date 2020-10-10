@@ -65,8 +65,8 @@ import {
                   >
                     {navLinks.map(({ title, path }) => (
                       <Link to={path} key={title} className={classes.linkText}>
-                        <ListItem button style={{marginTop: "auto", marginBottom: "auto"}}>
-                          <ListItemText primary={title} />
+                        <ListItem button className="activeNav" style={{marginTop: "auto", marginBottom: "auto"}}>
+                          <ListItemText className="activeNav" primary={title} />
                         </ListItem>
                       </Link>
                     ))}

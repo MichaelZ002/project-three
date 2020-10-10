@@ -28,13 +28,20 @@ export default (props) => {
         kind: "youtube#video"
       }
     })
-    
-    setVideoState({
-      vidMetaData: response.data.items,
-      vidID: response.data.items[0].id.videoId
-    })
-    console.log("RESPONSE " + typeof(response.data.items))
-    scrollToVids()
+
+    if (!response.data.items) {
+      setVideoState({
+          vidMetaData: [],
+          vidID: "dQw4w9WgXcQ"
+        })
+    } else {
+      setVideoState({
+        vidMetaData: response.data.items,
+        vidID: response.data.items[0].id.videoId
+      })
+      scrollToVids()
+    }
+    console.log("my response " + response)
   }
 
   const vidSelected = videoId => {
