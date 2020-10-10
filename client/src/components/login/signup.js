@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import {
   Button,
   Grid,
@@ -53,6 +53,7 @@ const InputField = withStyles({
 })(TextField);
 
 const Signup = () => {
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [customerName, setCustomerName] = useState("");
@@ -133,7 +134,7 @@ const Signup = () => {
               variant="outlined"
               onChange={event => onChangeHandler(event) }
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <AccountCircle />
@@ -150,7 +151,7 @@ const Signup = () => {
               variant="outlined"
               color="tan"
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <EmailRounded />
@@ -167,7 +168,7 @@ const Signup = () => {
               variant="outlined"
               onChange={event => onChangeHandler(event) }
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <LockRounded />
