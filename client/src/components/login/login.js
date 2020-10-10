@@ -175,7 +175,7 @@ const history = useHistory()
               onClick={(event) => {
                 auth.signInWithEmailAndPassword(email, password)
                 .then(data => {
-                    console.log(data.user.tenantId);
+                    console.log(data.user.uid);
                     history.push('/home')
                 }                
                 )
