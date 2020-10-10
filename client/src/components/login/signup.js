@@ -53,7 +53,7 @@ const InputField = withStyles({
 })(TextField);
 
 const Signup = () => {
-  const history = useHistory()
+    const history = useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [customerName, setCustomerName] = useState("");
@@ -181,10 +181,10 @@ const Signup = () => {
               color="primary"
               variant="contained"
               style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
-              onClick={event => {
-                auth.createUserWithEmailAndPassword(event, email, password)
+              onClick={
+                auth.createUserWithEmailAndPassword(email, password)
                 .then(data => history.push('/home'))
-              }}
+              }
             >
               Sign Up
             </Button>
