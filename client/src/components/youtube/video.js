@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { red } from "@material-ui/core/colors";
+import { Button } from "@material-ui/core";
 
 // function grabVideo(vidIdObj, vidSelected) {
 //   vidSelected(vidIdObj.videoId);
@@ -59,6 +60,12 @@ function createVidTiles(vidInfo, vidSelected) {
   console.log("my vidInfo " + vidInfo)
   if (vidInfo) {
   return vidInfo.map(({ snippet, id }, index) => {
+    
+    const writeToDB = () => {
+      let vidURL = `https://www.youtube.com/watch?v=${id.videoId}`
+      console.log(vidURL)
+    
+    }
     const [isOpen, setOpen] = useState(false)
     return (
       <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}} key={index}>
@@ -70,7 +77,9 @@ function createVidTiles(vidInfo, vidSelected) {
         
         
         <div className="videoInfo" style={wordStylez}>
+          <button onClick={writeToDB} >
         <FontAwesomeIcon  icon={faHeart} style={{color: "red", fontSize: "25px", marginTop: "0"}}/>
+        </button>
           <h4 style={{textDecoration: "bold"}}>{snippet.channelTitle}</h4>
           <p style={{textDecoration: "italics"}}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>  
           <p>
