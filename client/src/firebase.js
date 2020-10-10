@@ -14,9 +14,9 @@ const firebaseConfig = {
   measurementId: "G-J5ZCNKHVS9",
 };
 
-export const fireLogin = firebase.initializeApp(firebaseConfig);
+export const fire = firebase.initializeApp(firebaseConfig);
 
-export const auth = fireLogin.auth();
-export const firestore = fireLogin.firestore();
+export const auth = fire.auth();
+export const firestore = fire.firestore();
 console.log(auth)
 console.log(`Firebase Loaded!`)

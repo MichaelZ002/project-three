@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import {
   Button,
   Grid,
@@ -13,7 +13,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { AccountCircle, LockRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
-import {fireLogin} from "../../firebase" 
+import {auth} from "../../firebase" 
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -55,6 +55,7 @@ const InputField = withStyles({
 // export default class Login extends Component {
 
 const Login = () => {
+const history = useHistory()
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -173,7 +174,9 @@ const Login = () => {
               variant="contained"
               style={{ backgroundColor: "#ffc107" }}
               onClick={(event) => {
-                fireLogin.auth().signInWithEmailAndPasswordHandler(email, password)
+                auth.signInWithEmailAndPassword(email, password)
+                .then(data => history.push('/home')                
+                )
                 .catch(err => console.log(err))
             }}
             >
