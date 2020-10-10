@@ -1,5 +1,5 @@
 import React, {  useState, forwardRef } from 'react';
-import {List, ListItem, Collapse, Button, Drawer } from '@material-ui/core';
+import {List, ListItem, Button, Drawer } from '@material-ui/core';
 import clsx from 'clsx';
 import sidebarItems from './sidebarItems';
 import { NavLink as RouterLink } from 'react-router-dom';
