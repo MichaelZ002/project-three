@@ -13,6 +13,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { AccountCircle, LockRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
+import {fireLogin} from "../../firebase" 
 
 const useStyles = makeStyles(() => ({
   title: {
@@ -172,8 +173,9 @@ const Login = () => {
               variant="contained"
               style={{ backgroundColor: "#ffc107" }}
               onClick={(event) => {
-                signInWithEmailAndPasswordHandler(event, email, password);
-              }}
+                fireLogin.auth().signInWithEmailAndPasswordHandler(email, password)
+                .catch(err => console.log(err))
+            }}
             >
               Log In
             </Button>
