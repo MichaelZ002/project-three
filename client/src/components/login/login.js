@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory } from "react-router-dom";
 import {
   Button,
   Grid,
@@ -10,62 +10,58 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import {EmailRounded, LockRounded } from "@material-ui/icons";
+import { EmailRounded, LockRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
-import {auth} from "../../firebase" 
+import { auth } from "../../firebase";
 
 const useStyles = makeStyles(() => ({
-
   title: {
-      color: "#EE0979",
-  },  
+    color: "#EE0979",
+  },
   subcontainerRight: {
-      background: 'linear-gradient(to right bottom, #fff, #fff, #ffb84d)'
-
+    background: "linear-gradient(to right bottom, #fff, #fff, #ffb84d)",
   },
   loginBackground: {
-      justify: "center",
-      minHeight: "30vh",
-      padding: "50px"
-  }
-}))
+    justify: "center",
+    minHeight: "30vh",
+    padding: "50px",
+  },
+}));
 
 const InputField = withStyles({
   root: {
-      "& label.Mui-focused": {
-          color: "black",
+    "& label.Mui-focused": {
+      color: "black",
+    },
+    "& label": {
+      color: "tomato",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "gray",
       },
-      "& label": {
-          color: "tomato",
+      "&:hover fieldset": {
+        borderColor: "tomato",
       },
-      "& .MuiOutlinedInput-root": {
-          "& fieldset": {
-              borderColor: "gray",
-          },
-          "&:hover fieldset": {
-              borderColor: "tomato",
-          },
-          "& .Mui-focused fieldset": {
-              borderColor: "black",
-          },
+      "& .Mui-focused fieldset": {
+        borderColor: "black",
       },
-
+    },
   },
 })(TextField);
 
 // export default class Login extends Component {
 
 const Login = () => {
-const history = useHistory()
+  console.log(password);
+  const history = useHistory();
   const classes = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
-  
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
-  
+
     if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -171,16 +167,18 @@ const history = useHistory()
             <Button
               color="primary"
               variant="contained"
-              style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
+              style={{
+                background: "linear-gradient(to left, #ee0979, #ff6a00)",
+              }}
               onClick={(event) => {
-                auth.signInWithEmailAndPassword(email, password)
-                .then(data => {
-                    console.log(data.user.tenantId);
-                    history.push('/home')
-                }                
-                )
-                .catch(err => console.log(err))
-            }}
+                auth
+                  .signInWithEmailAndPassword(email, password)
+                  .then((data) => {
+                    console.log(data.user.uid);
+                    history.push("/home");
+                  })
+                  .catch((err) => console.log(err));
+              }}
             >
               Log In
             </Button>

@@ -55,6 +55,11 @@ export default (props) => {
     elmnt.scrollIntoView();
   }
 
+  function fave() {
+      
+    console.log(fave)
+  }
+
   return (
     <>
       <div style={{ display: "inline-flex" }}>
@@ -66,6 +71,7 @@ export default (props) => {
         <div className="row">
           <div className="col-md-12" style={{ marginTop: "45px", marginBottom: "35px"}}><Search onSearch={onSearch} /></div>
           <div id="myVidList" className="col-md-12">
+          <button id = "fave" onclick="fave()" class = "buttonSm"> Favorite </button>
             <VideoList vidSelected={vidSelected} data={videoState.vidMetaData} /> 
             
           </div>
