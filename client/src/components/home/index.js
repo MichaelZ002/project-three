@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import Search from "../youtube/search";
 import API from "../../utils/youtube-api";
 import VideoList from "../youtube/videoList";
-import Slider from "../slider";
-import Navbar from "../navbar/navbar";
-import VidPlayer from "../youtube/vidPlayer";
+import Slider from "../slider"
+import Navbar from "../navbar/navbar"
+import Modal from "../modal"
 import { STATES } from "mongoose";
 const Fave = require("../Model");
 const mongoose = require("mongoose");
@@ -12,32 +12,44 @@ const mongoose = require("mongoose");
 
 export default (props) => {
   const [videoState, setVideoState] = useState({
-    vidMetaData: [],
-    vidID: null,
-  });
-  function idGrabbr(itemsArr) {
-    let allIDs = [];
-    for (let i = 0; i < itemsArr.length; i++) {
-      allIDs.push(itemsArr[i].id.videoId);
-    }
-    return allIDs;
-  }
+    vidID: null
+  })
+
+  const [textState, setTextState] = useState({
+    searchText: "Your Next Project Is Waiting Beneath the Fold..."
+  })
+  // function idGrabbr(itemsArr){
+  //   let allIDs = []
+  //   for(let i=0; i< itemsArr.length; i++) {
+  //     allIDs.push(itemsArr[i].id.videoId)
+  //   }
+  //   return allIDs
+  // }
 
   const onSearch = async (searchWord) => {
     const response = await API.get("/search", {
       params: {
         q: searchWord + " diy",
-        kind: "youtube#video",
-      },
-    });
+        kind: "youtube#video"
+      }
+    })
 
-    setVideoState({
-      vidMetaData: response.data.items,
-      vidID: response.data.items[0].id.videoId,
-    });
-    console.log("RESPONSE " + response);
-    scrollToVids();
-  };
+    if (!response.data.items[0]) {
+      setTextState({
+        searchText: "Sorry, there are no videos for your search."
+      })
+    } else {
+      setTextState({
+        searchText: "Your Next Project Is Waiting Beneath the Fold..."
+      })
+      setVideoState({
+        vidMetaData: response.data.items,
+        vidID: response.data.items[0].id.videoId
+      })
+      scrollToVids()
+    }
+    console.log("my response " + response)
+  }
 
   const vidSelected = (videoId) => {
     setVideoState({
