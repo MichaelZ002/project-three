@@ -11,5 +11,7 @@ const UserFave =  new Schema({
     }
 })
 
-export const Fave = mongoose.model("Fave", UserFave)
+const Fave = mongoose.model("Fave", UserFave)
+
+module.exports = Fave;
 

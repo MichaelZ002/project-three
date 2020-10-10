@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { red } from "@material-ui/core/colors";
+import { Button } from "@material-ui/core";
 
 // function grabVideo(vidIdObj, vidSelected) {
 //   vidSelected(vidIdObj.videoId);
@@ -52,7 +53,11 @@ function getCss(imageurl) {
 
 
 // let myColors = Gradient('#ee0979', '#ff6a00', 20).toArray('rgbString');
+function writeToDB(id){
+  let vidURL = `https://www.youtube.com/watch?v=${id.videoId}`
+  console.log(vidURL)
 
+}
 
 
 function createVidTiles(vidInfo, vidSelected) {
@@ -73,7 +78,9 @@ function createVidTiles(vidInfo, vidSelected) {
         
         
         <div className="videoInfo" style={wordStylez}>
+          <button onClick={writeToDB(id)} >
         <FontAwesomeIcon  icon={faHeart} style={{color: "red", fontSize: "25px", marginTop: "0"}}/>
+        </button>
           <h4 style={{textDecoration: "bold"}}>{snippet.channelTitle}</h4>
           <p style={{textDecoration: "italics"}}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>  
           <p>
