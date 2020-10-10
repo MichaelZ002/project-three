@@ -1,12 +1,10 @@
 import React from 'react';
 import Navbar from "../navbar/navbar";
 
-const faveVids = [ {
-    id: "",
-    url: "",
-    name: "",
+// db.collection.insert ( 
+    
+// )
 
-}]
 
 const Favorite = () => {
     return (

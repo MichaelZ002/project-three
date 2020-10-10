@@ -49,7 +49,8 @@ export default (props) => {
   }
 
   function fave() {
-      
+    
+      // have this push to db when the favorite button is clicked 
     console.log(fave)
   }
 
