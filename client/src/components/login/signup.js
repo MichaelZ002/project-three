@@ -11,6 +11,7 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { AccountCircle, LockRounded, EmailRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
+import {auth} from "../../firebase" 
 
 const useStyles = makeStyles(() => ({
 
@@ -180,7 +181,8 @@ const Signup = () => {
               variant="contained"
               style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
               onClick={event => {
-                createUserWithEmailAndPassword(event, email, password);
+                auth.createUserWithEmailAndPassword(event, email, password)
+                .then(data => history.push('/home'))
               }}
             >
               Sign Up
