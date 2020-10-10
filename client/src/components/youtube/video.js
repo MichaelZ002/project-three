@@ -61,14 +61,11 @@ function createVidTiles(vidInfo, vidSelected) {
   return vidInfo.map(({ snippet, id }, index) => {
     const [isOpen, setOpen] = useState(false)
     return (
-      <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}}>
+      <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}} key={index}>
         
           <div className="video" id="firstVid" key={index} /* onclick here  */ >
-           
             <VidPlayer snippet={snippet.thumbnails.high.url} index={index} videoId={id.videoId}/>
-            <div style={{display: "inline-flex"}}>
-              
-              <p className="title">{snippet.title}</p> </div>
+            <p className="title">{snippet.title}</p>
           </div>
         
         
@@ -78,7 +75,7 @@ function createVidTiles(vidInfo, vidSelected) {
           <p style={{textDecoration: "italics"}}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>  
           <p>
             {snippet.description} 
-            <Link id="gradientAnchors" to={`https://www.youtube.com/watch?v=${id.videoId}`} style={{marginLeft:"6px"}} target="blank">See more on Youtube</Link>
+            <a id="gradientAnchors" href={`https://www.youtube.com/watch?v=${id.videoId}`} style={{marginLeft:"6px"}} target="blank">See more on Youtube</a>
           </p>  
         </div>
 
