@@ -54,9 +54,8 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [customerName, setCustomerName] = useState("");
-  const [error, setError] = useState(null);
   const onChangeHandler = (event) => {
-    const { name, email, password, value } = event.currentTarget;
+    const { name, value } = event.currentTarget;
     if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
@@ -116,7 +115,7 @@ const Signup = () => {
                 Sign Up
               </Typography>
             </Grid>
-            <InputField
+            {/* <InputField
               label="Name"
               name="customerName"
               value={customerName}
@@ -132,7 +131,7 @@ const Signup = () => {
                   </InputAdornment>
                 ),
               }}
-            />
+            /> */}
             <InputField
               label="Email"
               margin="normal"
@@ -174,13 +173,15 @@ const Signup = () => {
               style={{
                 background: "linear-gradient(to left, #ee0979, #ff6a00)",
               }}
-              onClick={auth
-                .createUserWithEmailAndPassword(email, password)
-                .then((data) => {
-                  console.log(data.user.uid);
-                  history.push("/home");
-                })
-                .catch((err) => console.log(err))}
+              onClick={() =>
+                auth
+                  .createUserWithEmailAndPassword(email, password)
+                  .then((data) => {
+                    console.log(data.user.uid);
+                    history.push("/home");
+                  })
+                  .catch((err) => console.log(err))
+              }
             >
               Sign Up
             </Button>
