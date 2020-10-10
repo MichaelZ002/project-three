@@ -4,7 +4,7 @@ import API from "../../utils/youtube-api"
 import VideoList from "../youtube/videoList";
 import Slider from "../slider"
 import Navbar from "../navbar/navbar"
-import VidPlayer from "../youtube/vidPlayer";
+import Modal from "../modal"
 import { STATES } from "mongoose";
 
 
@@ -13,13 +13,17 @@ export default (props) => {
     vidMetaData: [],
     vidID: null
   })
-  function idGrabbr(itemsArr){
-    let allIDs = []
-    for(let i=0; i< itemsArr.length; i++) {
-      allIDs.push(itemsArr[i].id.videoId)
-    }
-    return allIDs
-  }
+
+  const [textState, setTextState] = useState({
+    searchText: "Your Next Project Is Waiting Beneath the Fold..."
+  })
+  // function idGrabbr(itemsArr){
+  //   let allIDs = []
+  //   for(let i=0; i< itemsArr.length; i++) {
+  //     allIDs.push(itemsArr[i].id.videoId)
+  //   }
+  //   return allIDs
+  // }
 
   const onSearch = async searchWord => {
     const response = await API.get("/search", {
@@ -29,12 +33,14 @@ export default (props) => {
       }
     })
 
-    if (!response.data.items) {
-      setVideoState({
-          vidMetaData: [],
-          vidID: "dQw4w9WgXcQ"
-        })
+    if (!response.data.items[0]) {
+      setTextState({
+        searchText: "Sorry, there are no videos for your search."
+      })
     } else {
+      setTextState({
+        searchText: "Your Next Project Is Waiting Beneath the Fold..."
+      })
       setVideoState({
         vidMetaData: response.data.items,
         vidID: response.data.items[0].id.videoId
@@ -69,11 +75,12 @@ export default (props) => {
         <h3 style={{ fontWeight: "bold", marginLeft: "10vw" }}>Whatever your interests, DIWHY not start a new project?</h3>
         <Slider />
         <div className="row">
-          <div className="col-md-12" style={{ marginTop: "45px", marginBottom: "35px"}}><Search onSearch={onSearch} /></div>
+          <div className="col-md-12" style={{ marginTop: "45px", marginBottom: "35px"}}>
+            <Search onSearch={onSearch} />
+          </div>
           <div id="myVidList" className="col-md-12">
-          <button id = "fave" onclick="fave()" class = "buttonSm"> Favorite </button>
-            <VideoList vidSelected={vidSelected} data={videoState.vidMetaData} /> 
-            
+          <button id = "fave" onClick={fave()} className = "buttonSm"> Favorite </button>
+            <VideoList mySearchText={textState.searchText} vidSelected={vidSelected} data={videoState.vidMetaData} /> 
           </div>
         </div>
       </div>
