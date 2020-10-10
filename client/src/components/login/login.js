@@ -62,9 +62,6 @@ const history = useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const signInWithEmailAndPasswordHandler = (event, email, password) => {
-    event.preventDefault();
-  };
   
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
@@ -137,14 +134,14 @@ const history = useHistory()
               id="email"
               value={email}
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <EmailRounded />
                   </InputAdornment>
                 ),
               }}
-              onChange={(event) => onChangeHandler(event)}
+              onChange={onChangeHandler}
             />
             <InputField
               type="password"
@@ -155,14 +152,14 @@ const history = useHistory()
               value={password}
               margin="normal"
               InputProps={{
-                style: { color: "white" },
+                style: { color: "black" },
                 startAdornment: (
                   <InputAdornment position="start" style={{ color: "black" }}>
                     <LockRounded />
                   </InputAdornment>
                 ),
               }}
-              onChange={(event) => onChangeHandler(event)}
+              onChange={onChangeHandler}
             />
 
             <FormControlLabel
