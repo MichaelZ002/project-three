@@ -11,40 +11,44 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { AccountCircle, LockRounded, EmailRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
+import {auth} from "../../firebase" 
 
 const useStyles = makeStyles(() => ({
+
   title: {
-    color: "tan",
-  },
+      color: "#EE0979",
+  },  
   subcontainerRight: {
-    background: "linear-gradient(to right bottom, #000000, #8c8c8c)",
+      background: 'linear-gradient(to right bottom, #fff, #fff, #ffb84d)'
+
   },
   loginBackground: {
-    justify: "center",
-    minHeight: "30vh",
-    padding: "50px",
-  },
-}));
+      justify: "center",
+      minHeight: "30vh",
+      padding: "50px"
+  }
+}))
 
 const InputField = withStyles({
   root: {
-    "& label.Mui-focused": {
-      color: "tan",
-    },
-    "& label": {
-      color: "tomato",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "gray",
+      "& label.Mui-focused": {
+          color: "black",
       },
-      "&:hover fieldset": {
-        borderColor: "tomato",
+      "& label": {
+          color: "tomato",
       },
-      "& .Mui-focused fieldset": {
-        borderColor: "tan",
+      "& .MuiOutlinedInput-root": {
+          "& fieldset": {
+              borderColor: "gray",
+          },
+          "&:hover fieldset": {
+              borderColor: "tomato",
+          },
+          "& .Mui-focused fieldset": {
+              borderColor: "black",
+          },
       },
-    },
+
   },
 })(TextField);
 
@@ -53,7 +57,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [customerName, setCustomerName] = useState("");
   const [error, setError] = useState(null);
-  const createUser = (event, email, password) => {
+  const createUserWithEmailAndPassword = (event, email, password) => {
     event.preventDefault();
     setEmail("");
     setPassword("");
@@ -115,7 +119,7 @@ const Signup = () => {
               <Typography
                 component="h1"
                 variant="h5"
-                style={{ color: "#bcc2d7" }}
+                style={{ color: "black" }}
               >
                 Sign Up
               </Typography>
@@ -131,7 +135,7 @@ const Signup = () => {
               InputProps={{
                 style: { color: "white" },
                 startAdornment: (
-                  <InputAdornment position="start" style={{ color: "tan" }}>
+                  <InputAdornment position="start" style={{ color: "black" }}>
                     <AccountCircle />
                   </InputAdornment>
                 ),
@@ -148,7 +152,7 @@ const Signup = () => {
               InputProps={{
                 style: { color: "white" },
                 startAdornment: (
-                  <InputAdornment position="start" style={{ color: "tan" }}>
+                  <InputAdornment position="start" style={{ color: "black" }}>
                     <EmailRounded />
                   </InputAdornment>
                 ),
@@ -165,7 +169,7 @@ const Signup = () => {
               InputProps={{
                 style: { color: "white" },
                 startAdornment: (
-                  <InputAdornment position="start" style={{ color: "tan" }}>
+                  <InputAdornment position="start" style={{ color: "black" }}>
                     <LockRounded />
                   </InputAdornment>
                 ),
@@ -175,9 +179,10 @@ const Signup = () => {
             <Button
               color="primary"
               variant="contained"
-              style={{ backgroundColor: "#ffc107" }}
+              style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
               onClick={event => {
-                createUser(event, email, password);
+                auth.createUserWithEmailAndPassword(event, email, password)
+                .then(data => history.push('/home'))
               }}
             >
               Sign Up
