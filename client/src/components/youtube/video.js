@@ -64,11 +64,8 @@ function createVidTiles(vidInfo, vidSelected) {
       <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}}>
         
           <div className="video" id="firstVid" key={index} /* onclick here  */ >
-           
             <VidPlayer snippet={snippet.thumbnails.high.url} index={index} videoId={id.videoId}/>
-            <div style={{display: "inline-flex"}}>
-              
-              <p className="title">{snippet.title}</p> </div>
+            <p className="title">{snippet.title}</p>
           </div>
         
         

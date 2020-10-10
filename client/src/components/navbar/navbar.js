@@ -36,6 +36,8 @@ import {
       textDecoration: "none",
       textTransform: "uppercase",
       color: "white",
+      marginTop: "auto",
+      marginBottom: "auto"
     }
   });
   
@@ -61,7 +63,7 @@ import {
                     className={classes.navListDisplayFlex}
                   >
                     {navLinks.map(({ title, path }) => (
-                      <Link to={path} key={title} className={classes.linkText} style={{ marginTop: "auto", marginBottom: "auto"}}>
+                      <Link to={path} key={title} className={classes.linkText}>
                         <ListItem button style={{marginTop: "auto", marginBottom: "auto"}}>
                           <ListItemText primary={title} />
                         </ListItem>

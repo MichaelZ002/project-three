@@ -123,13 +123,7 @@
 // USE FROM HERE IF HOVER DOES NOT WORK
 import React from "react";
 const Videoplayer = ({ videoId }) => {
-  if (!videoId) {
-    return (
-      <p style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}>
-        No project ideas yet... :(
-      </p>
-    );
-  }
+
   return (
     <div className="video-player">
        <iframe 
