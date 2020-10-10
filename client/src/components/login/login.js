@@ -10,47 +10,49 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { AccountCircle, LockRounded } from "@material-ui/icons";
+import {EmailRounded, LockRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
 import {auth} from "../../firebase" 
 
 const useStyles = makeStyles(() => ({
+
   title: {
-    color: "tan",
-  },
+      color: "#EE0979",
+  },  
   subcontainerRight: {
-    background: "linear-gradient(to right bottom, #000000, #8c8c8c)",
+      background: 'linear-gradient(to right bottom, #fff, #fff, #ffb84d)'
+
   },
   loginBackground: {
-    justify: "center",
-    minHeight: "30vh",
-    padding: "50px",
-  },
-}));
+      justify: "center",
+      minHeight: "30vh",
+      padding: "50px"
+  }
+}))
 
 const InputField = withStyles({
   root: {
-    "& label.Mui-focused": {
-      color: "tan",
-    },
-    "& label": {
-      color: "tomato",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "gray",
+      "& label.Mui-focused": {
+          color: "black",
       },
-      "&:hover fieldset": {
-        borderColor: "tomato",
+      "& label": {
+          color: "tomato",
       },
-      "& .Mui-focused fieldset": {
-        borderColor: "tan",
+      "& .MuiOutlinedInput-root": {
+          "& fieldset": {
+              borderColor: "gray",
+          },
+          "&:hover fieldset": {
+              borderColor: "tomato",
+          },
+          "& .Mui-focused fieldset": {
+              borderColor: "black",
+          },
       },
-    },
+
   },
 })(TextField);
-
 
 // export default class Login extends Component {
 
@@ -122,7 +124,7 @@ const history = useHistory()
               <Typography
                 component="h1"
                 variant="h5"
-                style={{ color: "#bcc2d7" }}
+                style={{ color: "black" }}
               >
                 Sign In
               </Typography>
@@ -137,8 +139,8 @@ const history = useHistory()
               InputProps={{
                 style: { color: "white" },
                 startAdornment: (
-                  <InputAdornment position="start" style={{ color: "tan" }}>
-                    <AccountCircle />
+                  <InputAdornment position="start" style={{ color: "black" }}>
+                    <EmailRounded />
                   </InputAdornment>
                 ),
               }}
@@ -155,7 +157,7 @@ const history = useHistory()
               InputProps={{
                 style: { color: "white" },
                 startAdornment: (
-                  <InputAdornment position="start" style={{ color: "tan" }}>
+                  <InputAdornment position="start" style={{ color: "black" }}>
                     <LockRounded />
                   </InputAdornment>
                 ),
@@ -164,15 +166,15 @@ const history = useHistory()
             />
 
             <FormControlLabel
-              control={<Checkbox value="remember" style={{ color: "tan" }} />}
+              control={<Checkbox value="remember" style={{ color: "black" }} />}
               label="Remember me"
-              style={{ color: "tan" }}
+              style={{ color: "black" }}
             />
             <div style={{ height: 20 }} />
             <Button
               color="primary"
               variant="contained"
-              style={{ backgroundColor: "#ffc107" }}
+              style={{ background: "linear-gradient(to left, #ee0979, #ff6a00)" }}
               onClick={(event) => {
                 auth.signInWithEmailAndPassword(email, password)
                 .then(data => history.push('/home')                

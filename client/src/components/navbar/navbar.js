@@ -41,9 +41,10 @@ import {
   
   const navLinks = [
     { title: "Favorites", path: "/favorite" },
+    { title: "My Projects", path: "/project" },
     { title: "Log Out", path: "/sign-in" }
   ];
-  
+
   const Header = () => {
     const classes = useStyles();
   
