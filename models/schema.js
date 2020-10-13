@@ -10,5 +10,5 @@ const Project3Scema = new Schema({
 
 const LinkDB = mongoose.model('project3', Project3Scema)
 
-module.exports = linkDB 
+module.exports = LinkDB 
 
