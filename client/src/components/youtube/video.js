@@ -9,6 +9,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { red } from "@material-ui/core/colors";
 import { Button } from "@material-ui/core";
 
+
 // function grabVideo(vidIdObj, vidSelected) {
 //   vidSelected(vidIdObj.videoId);
 // }
@@ -63,6 +64,7 @@ function createVidTiles(vidInfo, vidSelected) {
     
     const writeToDB = () => {
       let vidURL = `https://www.youtube.com/watch?v=${id.videoId}`
+      
       console.log(vidURL)
     
     }
