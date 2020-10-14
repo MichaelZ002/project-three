@@ -45,7 +45,6 @@ function createVidTiles(vidInfo, vidSelected, user) {
   if (vidInfo) {
   return vidInfo.map(({ snippet, id }, index) => {
    
-    const [isOpen, setOpen] = useState(false)
     return (
       <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}} key={index}>
         
