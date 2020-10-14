@@ -79,6 +79,7 @@ export default (props) => {
             <VideoList
               vidSelected={vidSelected}
               data={videoState.vidMetaData}
+              mySearchText={textState.searchText}
             />
           </div>
         </div>
