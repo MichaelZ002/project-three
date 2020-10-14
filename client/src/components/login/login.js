@@ -54,7 +54,6 @@ const InputField = withStyles({
 // export default class Login extends Component {
 
 const Login = () => {
-  console.log(password);
   const history = useHistory();
   const classes = useStyles();
   const [email, setEmail] = useState("");

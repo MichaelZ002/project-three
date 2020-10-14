@@ -4,10 +4,8 @@ import API from "../../utils/youtube-api";
 import VideoList from "../youtube/videoList";
 import Slider from "../slider"
 import Navbar from "../navbar/navbar"
-import Modal from "../modal"
-import { STATES } from "mongoose";
-const Fave = require("../Model");
-const mongoose = require("mongoose");
+
+
 
 
 export default (props) => {

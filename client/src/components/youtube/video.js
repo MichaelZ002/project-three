@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useContext} from "react";
 import "../../styles/_video.css";
 import dayjs from "dayjs"
 import { Gradient } from 'react-gradient';
@@ -8,7 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { red } from "@material-ui/core/colors";
 import { Button } from "@material-ui/core";
-
+import axios from "axios"
+import { UserContext } from '../../prov/UserProvider'
 
 const wordStylez = {
   position: "relative",
@@ -18,16 +19,33 @@ const wordStylez = {
 };
 
 
-function createVidTiles(vidInfo, vidSelected) {
-  console.log("my vidInfo " + vidInfo)
+function createVidTiles(vidInfo, vidSelected, user) {
+
+  const like = (snippet, id) => {  
+    axios({
+      method: 'post',
+      url: '/api/save-link',
+      data: {snippet, id, uid: user.uid }
+
+    }).then(res =>{ 
+      console.log(res)
+
+    }).catch(err => {
+      console.log(err)
+    })
+
+    
+    
+    
+    console.log(snippet)
+
+  }
+
+  console.log("my vidInfo ", vidInfo)
   if (vidInfo) {
   return vidInfo.map(({ snippet, id }, index) => {
-    
-    const writeToDB = () => {
-      let vidURL = `https://www.youtube.com/watch?v=${id.videoId}`
-    
-    }
-
+   
+    const [isOpen, setOpen] = useState(false)
     return (
       <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}} key={index}>
         
@@ -38,7 +56,7 @@ function createVidTiles(vidInfo, vidSelected) {
         
         
         <div className="videoInfo" style={wordStylez}>
-          <button onClick={writeToDB} >
+          <button onClick = {() => like(snippet, id.videoId)}>
         <FontAwesomeIcon  icon={faHeart} style={{color: "red", fontSize: "25px", marginTop: "0"}}/>
         </button>
           <h4 style={{textDecoration: "bold"}}>{snippet.channelTitle}</h4>
@@ -54,9 +72,13 @@ function createVidTiles(vidInfo, vidSelected) {
     );
   });
 }}
-const Video = ({ data, vidSelected }) => {
+const Video = ({ data, vidSelected}) => {
   console.log("MY DATA " + data)
-  return <>{createVidTiles(data, vidSelected)}</>;
+  const user = useContext (UserContext)
+  
+
+  return <>{createVidTiles(data, vidSelected, user)}</>;
+
 };
 
 export default Video;
