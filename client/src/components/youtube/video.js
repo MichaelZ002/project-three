@@ -11,51 +11,12 @@ import { Button } from "@material-ui/core";
 import axios from "axios"
 import { UserContext } from '../../prov/UserProvider'
 
-// function grabVideo(vidIdObj, vidSelected) {
-//   vidSelected(vidIdObj.videoId);
-// }
-// onClick={() => grabVideo(id, vidSelected)} (put this inside the video div)
-function vidStylez(imageurl) {
-  
-
-  const stylez = {
-    position: "relative",
-    backgroundImage: `url(${imageurl})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    height: "180px",
-    width: "inherit"
-  };
-
-  return stylez;
-}
-
-function getCss(imageurl) {
-  const _styles = {
-    backgroundImage: `url(${imageurl})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    height: "180px",
-    position: "relative"
-  };
-  return _styles;
-}
-
-  const wordStylez = {
-    position: "relative",
-    marginTop: "auto",
-    marginBottom: "auto",
-    marginLeft: "25px"
-  };
-
-  let myColors = [
-    'ee0979',
-    'ff6a00'
-]
-
-
-// let myColors = Gradient('#ee0979', '#ff6a00', 20).toArray('rgbString');
-
+const wordStylez = {
+  position: "relative",
+  marginTop: "auto",
+  marginBottom: "auto",
+  marginLeft: "25px"
+};
 
 
 function createVidTiles(vidInfo, vidSelected, user) {
@@ -83,13 +44,12 @@ function createVidTiles(vidInfo, vidSelected, user) {
   console.log("my vidInfo ", vidInfo)
   if (vidInfo) {
   return vidInfo.map(({ snippet, id }, index) => {
-    
-    
+   
     const [isOpen, setOpen] = useState(false)
     return (
       <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}} key={index}>
         
-          <div className="video" id="firstVid" key={index} /* onclick here  */ >
+          <div className="video" id="firstVid" key={index}>
             <VidPlayer snippet={snippet.thumbnails.high.url} index={index} videoId={id.videoId}/>
             <p className="title">{snippet.title}</p>
           </div>
