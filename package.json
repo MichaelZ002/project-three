@@ -34,7 +34,7 @@
     "if-env": "^1.0.4",
     "material-ui-banner": "^1.4.3",
     "material-ui-search-bar": "^1.0.0",
-    "mongoose": "^5.3.16",
+    "mongoose": "^5.10.9",
     "node-sass": "^4.14.1",
     "react-gradient": "^1.0.2",
     "react-hover-video-player": "^6.6.3",
