@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const db = require("../models/schema");
 
 // This file empties the Books collection and inserts the books below
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/"
-);
+mongoose.connect("mongodb://localhost/project3", {
+  useNewUrlParser:true,
+  useFindAndModify:false
+});
 
 const seed = [
   {
+    
   }
 ];
