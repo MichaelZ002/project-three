@@ -8,7 +8,20 @@ const UserFave =  new Schema({
     },
     faveVids: {
         type: Array,
-    }
+    },
+    title: {
+        type: String
+    },
+    details: {
+        type: String
+    },
+    vidDate: {
+        type: String
+    },
+    youtuber: {
+        type: String
+    },
+
 })
 
 const Fave = mongoose.model("Fave", UserFave)

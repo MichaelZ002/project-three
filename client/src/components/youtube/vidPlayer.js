@@ -1,11 +1,10 @@
 import React from "react";
 
 const Videoplayer = ({ videoId }) => {
+  console.log("anything")
   if (!videoId) {
     return (
-      <p style={{ textAlign: "center", fontSize: "18px", fontWeight: "bold" }}>
-        Search for a video
-      </p>
+      <></>
     );
   }
   return (
