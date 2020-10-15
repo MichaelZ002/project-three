@@ -1,3 +1,3 @@
 module.exports = {
-    Fave: require ("./fave.js")
-}
+  Fave: require("./fave.js"),
+};

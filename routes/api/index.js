@@ -1,9 +1,8 @@
 const router = require("express").Router();
-const db = require("../../models")
+const db = require("../../models");
 //matches with /api/save-link
 router.route("/save-link").post((req, res) => {
-    
-    db.Fave.create(
+      db.Fave.create(
         { 
             UID: req.body.uid, 
             faveVids: [req.body.id], 
