@@ -51,7 +51,9 @@ function createVidTiles(vidInfo, vidSelected, user) {
   return vidInfo.map(({ snippet, id }, index) => {
     const [clicked, setClicked] = useState("gray")
     
-// changes liked button's color if liked or not
+// changes liked button's color if liked or not and send to
+//  or delete from database 
+// add code to check if a video is already in the database on like
     function clickable() {
       
       if(clicked === "gray") {
