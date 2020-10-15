@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Search from "../youtube/search";
 import API from "../../utils/youtube-api";
 import VideoList from "../youtube/videoList";
 import Slider from "../slider"
 import Navbar from "../navbar/navbar"
-
-
 
 
 export default (props) => {
@@ -21,7 +19,7 @@ export default (props) => {
     const response = await API.get("/search", {
       params: {
         q: searchWord + " diy",
-        kind: "youtube#video"
+        type: "video"
       }
     })
 
@@ -39,7 +37,6 @@ export default (props) => {
       })
       scrollToVids()
     }
-    console.log("my response " + response)
   }
 
   const vidSelected = (videoId) => {

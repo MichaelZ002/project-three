@@ -1,10 +1,6 @@
 import React, { memo } from "react";
-import ReactDOM from "react-dom";
-
 import { useInputValue, useTodos } from "./customHooks";
-
 import Layout from "./noteTaker/layout";
-
 import AddTodo from "./noteTaker/addToDo";
 import TodoList from "./noteTaker/toDoList";
 

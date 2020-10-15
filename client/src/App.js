@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import UserProvider from "./prov/UserProvider";
-
 import Login from "./components/login/login";
 import SignUp from "./components/login/signup";
 import Home from "./components/home/";
