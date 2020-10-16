@@ -3,3 +3,8 @@
   color: #e74944;
   font-size: "35px";
 }
+
+
+.delete-btn:hover {
+  cursor: pointer;
+}

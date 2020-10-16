@@ -21,7 +21,9 @@ router.route("/save-link").post((req, res) => {
 router.route("/save-link").delete((req, res) => {
   console.log("query " + req.query);
 
-  db.Fave.remove({ UID: req.query.userID, _id: req.query.favID })
+  db.Fave.remove(
+      { UID: req.query.userID, _id: req.query.favID },
+      {justOne: false})
     .then((result) => {
       console.log(result);
       res.json(result);

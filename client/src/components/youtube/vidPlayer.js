@@ -11,7 +11,7 @@ const Videoplayer = ({ videoId }) => {
        <iframe
         title= {`${ videoId }`}
         width="inherit" 
-        height="180px" 
+        height="250px" 
         src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"  allowFullScreen="allowfullscreen">
        </iframe>
