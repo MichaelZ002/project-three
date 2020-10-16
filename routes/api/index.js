@@ -47,4 +47,18 @@ router.route("/removedfavs").delete((req, res) => {
         })
 })
 
+router.route("/save-link").delete((req, res) => {
+    console.log("query " + req.query)
+
+    db.Fave.remove({ UID: req.query.userID, _id: req.query.favID })
+        .then(result => {
+            console.log(result)
+            res.json(result)
+        })
+        .catch(({ message }) => {
+            console.log(message);
+        })
+})
+
 module.exports = router
+

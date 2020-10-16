@@ -49,7 +49,6 @@ import {
 
   const Header = () => {
     const classes = useStyles();
-    console.log("me ded")
     return (
       <>
         <HideOnScroll>
