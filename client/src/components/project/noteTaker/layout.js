@@ -3,7 +3,6 @@ import { Typography } from "@material-ui/core";
 
 
 const Layout = memo(props => (
-    
     <>
         <div>
           <Typography 
