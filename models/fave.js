@@ -1,6 +1,5 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
-
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const UserFave =  new Schema({
     UID: {
         type: String,
@@ -8,12 +7,22 @@ const UserFave =  new Schema({
     },
     faveVids: {
         type: Array,
-    }
+    },
+    title: {
+        type: String
+    },
+    details: {
+        type: String
+    },
+    vidDate: {
+        type: String
+    },
+    youtuber: {
+        type: String
+    },
+
 })
 
-const Fave = mongoose.model("Fave", UserFave)
+const Fave = mongoose.model("Fave", UserFave);
 
 module.exports = Fave;
-
-
-

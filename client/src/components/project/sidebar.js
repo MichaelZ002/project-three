@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const SideBar = (props) => {
-    const [ menu, setMenu ] = useState({});
+    // const [ menu, setMenu ] = useState({});
     const { className, ...rest } = props;
     const classes  = useStyles();
     // const handleClick = (item) => {
