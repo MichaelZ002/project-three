@@ -17,5 +17,11 @@ export default {
         favID: fid
       }
     });
+  },
+
+  updateProject: function(){
+    console.log("update dbAPI")
   }
+
 };
+
