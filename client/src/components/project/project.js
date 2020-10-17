@@ -53,7 +53,7 @@ const Project = () => {
                     <div className={classes.wrapper}>
                         <ReactPlayer
                             className={classes.player}
-                            playing
+                            playing={false}
                             url={`https://www.youtube.com/embed/jByKArMfutQ`}
                             width='100%'
                             height='100%'

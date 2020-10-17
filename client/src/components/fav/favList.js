@@ -71,9 +71,13 @@ export default (props) => {
       padding: theme.spacing(2),
       color: theme.palette.text.secondary,
       position: "relative",
-      height: "40vh",
+      // height: "40vh",
       minWidth: "645px",
       margin: "15px",
+      maxHeight: "max-content"
+      
+
+
     },
     childVid: {
       position: "absolute",
