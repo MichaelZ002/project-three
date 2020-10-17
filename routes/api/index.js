@@ -58,4 +58,18 @@ router.route("/savedfavs").get((req, res) => {
     });
 });
 
+router.route("/project").post((req, res) =>{
+  db.Project.create({
+    UID: req.body.uid,
+    vidID: req.body.vidID
+  })
+  .then((result) => {
+    console.log(result);
+  })
+  .catch(({ message }) => {
+    console.log(message);
+  });
+}
+)
+
 module.exports = router;
