@@ -22,7 +22,7 @@ export default (props) => {
       console.log(props.user.uid);
       grabUserData(props.user.uid);
     }
-  });
+  }, []);
 
   function createNewProject(favID, uid) {
     console.log(`${favID} ${uid}`);
@@ -50,7 +50,8 @@ export default (props) => {
 
   function destroyUserData(favID) {
     API.deleteUserData(props.user.uid, favID)
-      .then((res) => grabUserData())
+      .then((res) =>  console.log(res.data
+        ))
       .catch((err) => console.log(err));
   }
 
