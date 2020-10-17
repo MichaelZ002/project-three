@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
 const Project = () => {
+    
     const classes = useStyles();
     return (
         <>
