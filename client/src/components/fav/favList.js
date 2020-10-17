@@ -10,6 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from "../button";
 import dayjs from "dayjs";
 
+
+
 export default (props) => {
   const [uHasData, setUHasData] = useState([])
 
@@ -18,7 +20,7 @@ export default (props) => {
       console.log("Hey! You found some data!")
       console.log(props.user.uid)
       grabUserData(props.user.uid)
-    } 
+    }
   })
 
   function grabUserData(uid) {
@@ -41,7 +43,12 @@ export default (props) => {
   const useStyles = makeStyles((theme) => ({
     myh1: {
       marginTop: "5vh",
-      textAlign: "center"
+      textAlign: "center",
+
+    },
+    moreH: {
+      textAlign: "center",
+      marginTop: "2vh"
     },
     root: {
       flexGrow: 1,
@@ -72,19 +79,24 @@ export default (props) => {
     }
   }));
 
+
+
   const classes = useStyles();
   return (
     <>
-    <h1 className={classes.myh1}>Favorites</h1>
+      <h1 className={classes.myh1}>Favorites</h1>
+      <h2 className={classes.moreH}>The land of opportunity awaits!</h2>
+      <h3 className={classes.moreH}>View your favorited videos and create a new project!</h3>
+
       <div className={classes.root}>
         <Grid container spacing={2} >
           {uHasData.map(fav => {
             return (
               <Grid item lg={6} key={fav._id} >
-                <Paper className={classes.paper} style={{marginTop: "auto", marginBottom: "auto", paddingTop: "6vh"}}>
+                <Paper className={classes.paper} style={{ marginTop: "auto", marginBottom: "auto", paddingTop: "6vh" }}>
                   <div style={{ display: "inline-flex" }}>
                     <div>
-                      <VidPlayer className={classes.childVid} videoId={fav.faveVids[0]}/>
+                      <VidPlayer className={classes.childVid} videoId={fav.faveVids[0]} />
                       <Button >Create a Project</Button>
                     </div>
 
