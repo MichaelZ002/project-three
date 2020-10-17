@@ -22,8 +22,9 @@ router.route("/save-link").delete((req, res) => {
   console.log("query " + req.query);
 
   db.Fave.deleteOne(
-      { UID: req.body.userID, _id: req.body.favID },
-      {justOne: false})
+    { UID: req.body.userID, _id: req.body.favID },
+    { justOne: false }
+  )
     .then((result) => {
       console.log(result);
       res.json(result);
@@ -58,21 +59,29 @@ router.route("/savedfavs").get((req, res) => {
     });
 });
 
-router.route("/projects").post((req, res) =>{
-  console.log(req.body)
+router.route("/projects").post((req, res) => {
+  console.log(req.body);
   db.Project.create({
     UID: req.body.uid,
-    vidID: req.body.favID
+    vidID: req.body.favID,
   })
-  .then((result) => {
-    console.log(result);
+    .then((result) => {
+      console.log(result);
+      res.end();
+    })
+    .catch(({ message }) => {
+      console.log(message);
+      res.end();
+    });
+});
+
+router.route("/projectvid").get((req, res) => {
+  db.Project.find()
+    .sort({ $natural: -1 })
+    .limit(5)
     res.end()
-  })
-  .catch(({ message }) => {
-    console.log(message);
-    res.end()
-  });
-}
-)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err));
+});
 
 module.exports = router;

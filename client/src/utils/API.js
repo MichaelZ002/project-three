@@ -2,31 +2,33 @@ import axios from "axios";
 
 export default {
   // Gets the user data
-  getUserData: function(id) {
-    return axios.get('/api/savedfavs', {
+  getUserData: function (id) {
+    return axios.get("/api/savedfavs", {
       params: {
-        userID: id
-      }
-    })
+        userID: id,
+      },
+    });
   },
   // Deletes the book with the given id
-  deleteUserData: function(uid, fid) {
+  deleteUserData: function (uid, fid) {
     return axios.delete("/api/removedfavs", {
       params: {
         userID: uid,
-        favID: fid
-      }
+        favID: fid,
+      },
     });
   },
 
-  updateProject: function(todoItem){
+  updateProject: function (todoItem) {
     // return console.log("update dbAPI")
-    return axios.post("/api/projects", {
+    return axios.get("/api/projects", {
       params: {
-        todoItem
-      }
+        notes: todoItem,
+      },
     });
+  },
+
+  getVidFromDB: function(){
+    return axios.get('/api/projectvid')
   }
-
 };
-
