@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import API from "../../utils/API"
 
 export const useInputValue = (initialValue = "") => {
   const [inputValue, setInputValue] = useState(initialValue);
@@ -21,6 +22,24 @@ export const useInputValue = (initialValue = "") => {
 export const useTodos = (initialValue = []) => {
   const [todos, setTodos] = useState(initialValue);
 
+  const firstRender= useRef(true)
+
+  useEffect(()=>{
+    
+    if(firstRender.current){
+      console.log("happy saturday")
+      firstRender.current = false
+    }
+    //update DB here
+    else{
+     API.updateProject(todos).then(res => {
+       console.log(res)
+     }).catch (error => {
+       console.log(error)
+     })
+    }
+
+  },[todos])
   return {
     todos,
     addTodo: text => {

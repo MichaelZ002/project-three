@@ -17,5 +17,16 @@ export default {
         favID: fid
       }
     });
+  },
+
+  updateProject: function(todoItem){
+    // return console.log("update dbAPI")
+    return axios.post("/api/projects", {
+      params: {
+        todoItem
+      }
+    });
   }
+
 };
+

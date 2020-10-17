@@ -81,23 +81,7 @@ const SideBar = (props) => {
                 </List>
               )
             }
-            return (
-              <div key={ name }>
-              <ListItem
-                className={classes.item}
-                disableGutters
-                key={name}
-                // onClick={() => handleClick(name)}
-              >
-                <Button
-                className={clsx({
-                  [classes.btnRoot] : true,
-                  [classes.button] : true,
-                })}>
-                  </Button>
-                </ListItem>
-              </div>
-            )
+
         })
     }
 return (

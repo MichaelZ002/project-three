@@ -15,12 +15,14 @@ export default (props) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (uHasData.length < 1 && props.user) {
+    if (uHasData.length <= 1 && props.user) {
+
       console.log("Hey! You found some data!");
       console.log(props.user.uid);
       grabUserData(props.user.uid);
     }
-  }, [props.user]);
+  }, []);
+
 
   function createNewProject(favID, uid) {
     console.log(`${favID} ${uid}`);
