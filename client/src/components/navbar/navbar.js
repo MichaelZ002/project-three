@@ -37,8 +37,15 @@ import {
       textTransform: "uppercase",
       color: "white",
       marginTop: "auto",
-      marginBottom: "auto"
+      marginBottom: "auto",
+      '&:hover': {
+        color: 'purple',
+      },
+      '&:active': {
+        background: 'white'
+        }
     }
+
   });
   
   const navLinks = [
