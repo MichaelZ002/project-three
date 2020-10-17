@@ -1,16 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const UserFave =  new Schema({
+const UserProject =  new Schema({
     UID: {
         type: String,
         required: true
     },
-    faveVids: {
+    vidID: {
         type: Array,
-    },
-    title: {
-        type: String
- 
     },
     materials:{
         type: String
@@ -22,6 +18,6 @@ const UserFave =  new Schema({
     
 })
 
-const Fave = mongoose.model("Fave", UserFave);
+const Project = mongoose.model("Fave", UserProject);
 
-module.exports = Fave;
+module.exports = Project;
