@@ -18,6 +18,6 @@ const UserProject =  new Schema({
     
 })
 
-const Project = mongoose.model("Fave", UserProject);
+const Project = mongoose.model("Projects", UserProject);
 
 module.exports = Project;

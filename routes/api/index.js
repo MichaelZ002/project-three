@@ -59,6 +59,7 @@ router.route("/savedfavs").get((req, res) => {
 });
 
 router.route("/project").post((req, res) =>{
+  console.log(req.body)
   db.Project.create({
     UID: req.body.uid,
     vidID: req.body.vidID
