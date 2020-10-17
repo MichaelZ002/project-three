@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
 const Project = () => {
+    
     const classes = useStyles();
     return (
         <>
@@ -53,7 +53,7 @@ const Project = () => {
                     <div className={classes.wrapper}>
                         <ReactPlayer
                             className={classes.player}
-                            playing
+                            playing={false}
                             url={`https://www.youtube.com/embed/jByKArMfutQ`}
                             width='100%'
                             height='100%'
@@ -74,7 +74,7 @@ const Project = () => {
                 </Grid>
                 <Grid item xs={10} sm={10} style={{ marginTop: "35px" }} justify="center">
                     <Paper className={classes.paper} elevation="5">
-                        <h3>Blue prints of my project</h3>
+                        <h3>My Project Blueprints</h3>
                         < ToDoList />
                     </Paper>
                 </Grid>
