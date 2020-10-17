@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import API from "../../utils/API";
 import VidPlayer from "../youtube/vidPlayer";
 import DeleteBtn from "../DeleteBtn";
@@ -22,7 +20,7 @@ export default (props) => {
       console.log(props.user.uid);
       grabUserData(props.user.uid);
     }
-  });
+  }, [props.user]);
 
   function createNewProject(favID, uid) {
     console.log(`${favID} ${uid}`);
@@ -43,7 +41,7 @@ export default (props) => {
     console.log("grabData UID" + uid);
     let randomNum = Math.floor(Math.random() * (10 - 3) + 3);
     console.log(randomNum)
-    
+
     API.getUserData(uid)
       .then((res) => {
         console.log("my data ", res.data);
@@ -55,7 +53,7 @@ export default (props) => {
 
   function destroyUserData(favID) {
     API.deleteUserData(props.user.uid, favID)
-      .then((res) => grabUserData())
+      .then((res) => grabUserData(props.user.uid))
       .catch((err) => console.log(err));
   }
 
@@ -79,9 +77,7 @@ export default (props) => {
       minWidth: "645px",
       margin: "15px",
       maxHeight: "max-content"
-      
-
-
+   
     },
     childVid: {
       position: "absolute",

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import "../../styles/_video.css";
 import dayjs from "dayjs";
 import VidPlayer from "../youtube/vidPlayer";
@@ -15,6 +15,29 @@ const wordStylez = {
 };
 
 function createVidTiles(vidInfo, vidSelected, user) {
+
+  
+
+  const findFav = (id, videoId) => {
+    axios.get('/api/savedfavs', {
+      params: {
+        UID: id,
+        faveVids: [videoId]
+      }
+    })
+      .then((res) => {
+        console.log("res ", res)
+        if (res.data.length > 0) {
+          console.log("there is data! ", res.data);
+          // setClicked("red")
+        } else {
+          console.log("there is NO data! ", res.data);
+          // setClicked("gray")
+        }
+        
+      })
+      .catch((err) => console.log(err));
+  }
 
   const like = (snippet, id) => {
     axios({
@@ -46,36 +69,31 @@ function createVidTiles(vidInfo, vidSelected, user) {
 
   }
 
-  function arrayShuffler(vidArr) {
-    let vidShuffle = vidArr => vidArr.sort(() => .5 - Math.random());
-    console.log("my vidInfo ", vidArr)
-    console.log("shuffled vidInfo ", vidShuffle)
-    return vidShuffle
-  }
 
   
   if (vidInfo) {
-    console.log("my vidInfo ", vidInfo)
-    
-    
-    return vidInfo.sort(() => .5 - Math.random()).slice(0, 3).map(({ snippet, id }, index) => {
-      console.log("shuffled vidInfo ", vidInfo)
+    //copy this code over vidInfo on line 76 to randomize: vidInfo= vidInfo.sort(() => .5 - Math.random()).slice(0, 3)
+
+    return vidInfo.map(({ snippet, id }, index) => {
       const [clicked, setClicked] = useState("gray")
-
-      // changes liked button's color if liked or not and send to
-      // or delete from database 
-      // add code to check if a video is already in the database on like
-
       function clickable() {
-
         if (clicked === "gray") {
+          console.log(`uid ${user.uid}, vid ID ${id.videoId}`)
+          findFav(user.uid, id.videoId)
           setClicked("red")
-          like(snippet, id.videoId)
+          // like(snippet, id.videoId)
         } else {
           setClicked("gray")
           unLike(id.videoId)
         }
       }
+      
+
+      // changes liked button's color if liked or not and send to
+      // or delete from database 
+      // add code to check if a video is already in the database on like
+
+      
 
 
       return (
