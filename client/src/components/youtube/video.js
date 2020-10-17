@@ -35,7 +35,7 @@ function createVidTiles(vidInfo, vidSelected, user) {
     axios({
       method: 'delete',
       url: '/api/save-link',
-      _id: {id}
+      data: {_id: id}
 
     }).then(res =>{ 
       console.log("line 27 video.js console", res)
@@ -51,8 +51,9 @@ function createVidTiles(vidInfo, vidSelected, user) {
     const [clicked, setClicked] = useState("gray")
     
 // changes liked button's color if liked or not and send to
-//  or delete from database 
+// or delete from database 
 // add code to check if a video is already in the database on like
+
     function clickable() {
       
       if(clicked === "gray") {
@@ -62,7 +63,7 @@ function createVidTiles(vidInfo, vidSelected, user) {
         setClicked("gray")
         unLike(id.videoId)
       }
-      
+
     }
 
    

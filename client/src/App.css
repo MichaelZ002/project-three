@@ -21,11 +21,7 @@
   color: purple;
   text-decoration: underline;
 }
-.paper::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+
 
   
    
