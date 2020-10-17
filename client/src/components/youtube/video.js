@@ -19,6 +19,8 @@ const Video = ({ data, vidSelected }) => {
     0:'gray',
     1:'gray',
     2:'gray',
+    3:'gray',
+    4:'gray',
   }
 
   const [clicked, setClicked] = useState(init)
@@ -37,10 +39,8 @@ function createVidTiles(vidInfo, vidSelected, user) {
         console.log("res ", res)
         if (res.data.length > 0) {
           console.log("there is data! ", res.data);
-          // setClicked("red")
         } else {
           console.log("there is NO data! ", res.data);
-          // setClicked("gray")
         }
         
       })
@@ -110,7 +110,7 @@ function createVidTiles(vidInfo, vidSelected, user) {
 
           <div className="video" id="firstVid" key={index}>
             <VidPlayer snippet={snippet.thumbnails.high.url} index={index} videoId={id.videoId} />
-            <p className="title">{snippet.title}</p>
+            <p className="title" style={{fontSize: "20px"}}>{snippet.channelTitle}</p>
           </div>
 
 
@@ -118,7 +118,7 @@ function createVidTiles(vidInfo, vidSelected, user) {
             <button onClick={() => { clickable() }}>
               <FontAwesomeIcon icon={faHeart} style={{ color: clicked[index], fontSize: "25px", marginTop: "0" }} />
             </button>
-            <h4 style={{ textDecoration: "bold" }}>{snippet.channelTitle}</h4>
+            <h4 style={{ textDecoration: "bold" }}>{snippet.title}</h4>
             <p style={{ textDecoration: "italics" }}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>
             <p>
               {snippet.description}
