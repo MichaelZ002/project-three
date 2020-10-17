@@ -18,19 +18,21 @@ const useStyles = makeStyles((theme) => ({
     wrapper: {
         position: "relative",
         paddingTop: "56.25%"
+        
     },
-
     player: {
         position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
+
     },
     paper: {
         textAlign: 'center',
         backgroundColor: "#fff5e6",
-        minHeight: "175px"
+        minHeight: "175px",
+        position: "relative",
 
     },
 
@@ -44,12 +46,12 @@ const Project = () => {
         <>
 
             < Navbar />
-            <Grid container spacing={2}>
-                <Grid item xs={2} sm={2}>
+            <Grid container spacing={2} alignItems={"center"}>
+                <Grid item xs={2} sm={2} lg={2}>
                     < SideBar />
                 </Grid>
 
-                <Grid item xs={10} sm={10} md={5}style={{ marginTop: "35px" }}>
+                <Grid item xs={10} sm={10} md={5} lg={5} style={{ marginTop: "35px", marginLeft: "auto", marginRight: "auto" }}>
                     <div className={classes.wrapper}>
                         <ReactPlayer
                             className={classes.player}
@@ -60,20 +62,20 @@ const Project = () => {
                         />
                     </div>
                 </Grid>
-                <Grid item xs={2} sm={2} md={1} style={{ marginTop: "35px" }}>
+                {/* <Grid item xs={2} sm={2} md={1} style={{ marginTop: "35px", }}>
                     < div />
-                </Grid>
-                <Grid item xs={10} sm={10} md={4}style={{ marginTop: "35px" }} justify="center">
+                </Grid> */}
+                {/* <Grid item xs={10} sm={10} md={4}style={{ marginTop: "35px" }} justify="center">
                     <Paper className={classes.paper} elevation="5">
-                        <h3>Materials Needed</h3>
+                        <h3>Materials Needed</h3> */}
                         {/* < ToDoList /> */}
-                    </Paper>
-                </Grid>
-                <Grid item xs={2} sm={2} style={{ marginTop: "35px" }}>
+                    {/* </Paper>
+                </Grid> */}
+                {/* <Grid item xs={2} sm={2} style={{ marginTop: "35px" }}>
                     < div />
-                </Grid>
-                <Grid item xs={10} sm={10} style={{ marginTop: "35px" }} justify="center">
-                    <Paper className={classes.paper} elevation="5">
+                </Grid> */}
+                <Grid item xs={10} sm={10} lg={12} style={{ marginTop: "35px",marginLeft: "16vw", marginRight: "1vw" }} >
+                    <Paper className={classes.paper} >
                         <h3>My Project Blueprints</h3>
                         < ToDoList />
                     </Paper>
