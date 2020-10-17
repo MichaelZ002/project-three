@@ -66,9 +66,11 @@ router.route("/projects").post((req, res) =>{
   })
   .then((result) => {
     console.log(result);
+    res.end()
   })
   .catch(({ message }) => {
     console.log(message);
+    res.end()
   });
 }
 )
