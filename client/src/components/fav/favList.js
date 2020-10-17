@@ -25,14 +25,14 @@ export default (props) => {
   }, []);
 
   function createNewProject(favID, uid) {
-    console.log(`${favID} ${uid}`);
+    console.log(`${favID} ${uid} I AM TRYING`);
     axios({
       method: "post",
-      url: "/api/project",
-      data: { favID, uid }
+      url: "/api/projects",
+      data: { favID, uid },
     })
-      .then(() => {
-        console.log("/project working");
+      .then((res) => {
+        console.log(res);
       })
       .catch((err) => console.log(err));
     history.push("/project");
@@ -74,10 +74,7 @@ export default (props) => {
       position: "relative",
       minWidth: "645px",
       margin: "15px",
-      maxHeight: "max-content"
-      
-
-
+      maxHeight: "max-content",
     },
     childVid: {
       position: "absolute",
@@ -123,7 +120,11 @@ export default (props) => {
                         className={classes.childVid}
                         videoId={fav.faveVids[0]}
                       />
-                      <Button onClick={() => createNewProject(fav._id, props.user.uid)}>
+                      <Button
+                        onClick={() =>
+                          createNewProject(fav._id, props.user.uid)
+                        }
+                      >
                         Create a Project
                       </Button>
                     </div>
