@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
 import "../../styles/_video.css";
-import dayjs from "dayjs"
+import dayjs from "dayjs";
 import VidPlayer from "../youtube/vidPlayer";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import axios from "axios"
-import { UserContext } from '../../prov/UserProvider'
+import axios from "axios";
+import { UserContext } from '../../prov/UserProvider';
 
 const wordStylez = {
   position: "relative",
@@ -31,7 +31,6 @@ function createVidTiles(vidInfo, vidSelected, user) {
     
   }
   
-
   const unLike = (id) => {  
     axios({
       method: 'delete',
@@ -77,7 +76,6 @@ function createVidTiles(vidInfo, vidSelected, user) {
         
         
         <div className="videoInfo" style={wordStylez}>
-          <div>{}</div>
           <button onClick = {() => {clickable()}}>
         <FontAwesomeIcon  icon={faHeart} style={{color: clicked, fontSize: "25px", marginTop: "0"}}/>
         </button>

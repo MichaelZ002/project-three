@@ -21,75 +21,40 @@
   color: purple;
   text-decoration: underline;
 }
-
-
-
-/* .search-form {
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    justify-content: flex-start;
-    padding: 0 20px;
-    align-items: center;
-  }
-  
-  .form-controls {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .form-controls input[type="text"] {
-    display: flex;
-    border: 1px solid lightgray;
-    flex-grow: 1;
-    padding: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  .form-controls input[type="text"]:focus {
-    outline: none;
-    border-color: gray;
-    box-shadow: 0 2px 5px lightgray;
-  }
-  
-  .form-controls label {
-    display: none;
-  }
-   */
    
-   .modal {
-    font-size: 12px;
-  }
-  .modal > .header {
-    width: 100%;
-    border-bottom: 1px solid gray;
-    font-size: 18px;
-    text-align: center;
-    padding: 5px;
-  }
-  .modal > .content {
-    width: 100%;
-    padding: 10px 5px;
-  }
-  .modal > .actions {
-    width: 100%;
-    padding: 10px 5px;
-    margin: auto;
-    text-align: center;
-  }
-  .modal > .close {
-    cursor: pointer;
-    position: absolute;
-    display: block;
-    padding: 2px 5px;
-    line-height: 20px;
-    right: -10px;
-    top: -10px;
-    font-size: 24px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid #cfcece;
-  }
+.modal {
+font-size: 12px;
+}
+.modal > .header {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.modal > .content {
+  width: 100%;
+  padding: 10px 5px;
+}
+.modal > .actions {
+  width: 100%;
+  padding: 10px 5px;
+  margin: auto;
+  text-align: center;
+}
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
 
   
    

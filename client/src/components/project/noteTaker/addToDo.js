@@ -6,6 +6,7 @@ const AddTodo = memo(props => (
     <Grid container>
       <Grid xs={9} md={10} item style={{ paddingRight: 16 }}>
         <TextField
+          color="secondary"
           placeholder="Type here"
           value={props.inputValue}
           onChange={props.onInputChange}
