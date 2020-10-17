@@ -14,8 +14,16 @@ const wordStylez = {
   marginLeft: "25px"
 };
 
-function createVidTiles(vidInfo, vidSelected, user) {
+const Video = ({ data, vidSelected }) => {
+  const init = {
+    0:'gray',
+    1:'gray',
+    2:'gray',
+  }
 
+  const [clicked, setClicked] = useState(init)
+  const user = useContext(UserContext)
+function createVidTiles(vidInfo, vidSelected, user) {
   
 
   const findFav = (id, videoId) => {
@@ -70,23 +78,24 @@ function createVidTiles(vidInfo, vidSelected, user) {
   }
 
 
+
   
   if (vidInfo) {
     //copy this code over vidInfo on line 76 to randomize: vidInfo= vidInfo.sort(() => .5 - Math.random()).slice(0, 3)
 
     return vidInfo.map(({ snippet, id }, index) => {
-      const [clicked, setClicked] = useState("gray")
       function clickable() {
-        if (clicked === "gray") {
+        if (clicked[index] === "gray") {
           console.log(`uid ${user.uid}, vid ID ${id.videoId}`)
           findFav(user.uid, id.videoId)
-          setClicked("red")
-          // like(snippet, id.videoId)
+          setClicked({...clicked, [index]:"red"})
+          like(snippet, id.videoId)
         } else {
-          setClicked("gray")
+          setClicked({...clicked, [index]:"gray"})
           unLike(id.videoId)
         }
       }
+      
       
 
       // changes liked button's color if liked or not and send to
@@ -107,7 +116,7 @@ function createVidTiles(vidInfo, vidSelected, user) {
 
           <div className="videoInfo" style={wordStylez}>
             <button onClick={() => { clickable() }}>
-              <FontAwesomeIcon icon={faHeart} style={{ color: clicked, fontSize: "25px", marginTop: "0" }} />
+              <FontAwesomeIcon icon={faHeart} style={{ color: clicked[index], fontSize: "25px", marginTop: "0" }} />
             </button>
             <h4 style={{ textDecoration: "bold" }}>{snippet.channelTitle}</h4>
             <p style={{ textDecoration: "italics" }}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>
@@ -121,10 +130,10 @@ function createVidTiles(vidInfo, vidSelected, user) {
     });
   }
 }
-const Video = ({ data, vidSelected }) => {
+  
 
-  const user = useContext(UserContext)
-  return <>{createVidTiles(data, vidSelected, user)}</>;
+
+return <>{createVidTiles(data, vidSelected, user)}</>;
 
 };
 

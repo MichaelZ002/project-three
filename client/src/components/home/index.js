@@ -24,7 +24,7 @@ export default (props) => {
       params: {
         q: searchWord + " diy",
         type: "video",
-        maxResults: 10,
+        maxResults: 3,
       }
     })
 
