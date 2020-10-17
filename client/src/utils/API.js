@@ -19,8 +19,13 @@ export default {
     });
   },
 
-  updateProject: function(){
-    console.log("update dbAPI")
+  updateProject: function(todoItem){
+    // return console.log("update dbAPI")
+    return axios.post("/api/projects", {
+      params: {
+        todoItem
+      }
+    });
   }
 
 };

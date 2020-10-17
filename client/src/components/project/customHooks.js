@@ -32,7 +32,7 @@ export const useTodos = (initialValue = []) => {
     }
     //update DB here
     else{
-     API.updateProject().then(res => {
+     API.updateProject(todos).then(res => {
        console.log(res)
      }).catch (error => {
        console.log(error)
@@ -40,11 +40,6 @@ export const useTodos = (initialValue = []) => {
     }
 
   },[todos])
-
-
-
-
-
   return {
     todos,
     addTodo: text => {
