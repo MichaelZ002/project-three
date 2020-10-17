@@ -16,10 +16,15 @@ export default (props) => {
   })
 
   const onSearch = async (searchWord) => {
+
+    // randomizes number of videos from 3-10
+    let randomNum = Math.floor(Math.random() *  (10 - 3) + 3);
+
     const response = await API.get("/search", {
       params: {
         q: searchWord + " diy",
-        type: "video"
+        type: "video",
+        maxResults: 3,
       }
     })
 
@@ -38,7 +43,6 @@ export default (props) => {
       scrollToVids()
     }
   }
-
   const vidSelected = (videoId) => {
     setVideoState({
       vidID: videoId,

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import API from "../../utils/API";
 import VidPlayer from "../youtube/vidPlayer";
 import DeleteBtn from "../DeleteBtn";
@@ -23,32 +21,36 @@ export default (props) => {
       console.log(props.user.uid);
       grabUserData(props.user.uid);
     }
-
   }, []);
 
 
   function createNewProject(favID, uid) {
-    console.log(`${favID} ${uid} I AM TRYING`);
+    console.log(`${favID} ${uid}`);
     axios({
       method: "post",
-      url: "/api/projects",
-      data: { favID, uid },
+      url: "/api/project",
+      data: { favID, uid }
     })
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        console.log("/project working");
       })
       .catch((err) => console.log(err));
     history.push("/project");
   }
 
+
   function grabUserData(uid) {
     console.log("grabData UID" + uid);
+    let randomNum = Math.floor(Math.random() * (10 - 3) + 3);
+    console.log(randomNum)
+
     API.getUserData(uid)
       .then((res) => {
         console.log("my data ", res.data);
         setUHasData(res.data);
       })
       .catch((err) => console.log(err));
+      
   }
 
   function destroyUserData(favID) {
@@ -74,10 +76,10 @@ export default (props) => {
       padding: theme.spacing(2),
       color: theme.palette.text.secondary,
       position: "relative",
-      // height: "40vh",
       minWidth: "645px",
       margin: "15px",
-      maxHeight: "max-content",
+      maxHeight: "max-content"
+   
     },
     childVid: {
       position: "absolute",
@@ -123,11 +125,7 @@ export default (props) => {
                         className={classes.childVid}
                         videoId={fav.faveVids[0]}
                       />
-                      <Button
-                        onClick={() =>
-                          createNewProject(fav._id, props.user.uid)
-                        }
-                      >
+                      <Button onClick={() => createNewProject(fav._id, props.user.uid)}>
                         Create a Project
                       </Button>
                     </div>

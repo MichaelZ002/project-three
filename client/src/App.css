@@ -17,15 +17,7 @@
         -1px -1px 0 #ff6a00;;
 
 }
-.activeNav:hover {
-  color: purple;
-  text-decoration: underline;
-}
-.paper::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+
 
   
    
