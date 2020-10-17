@@ -15,11 +15,23 @@ export default (props) => {
     searchText: "Your Next Project Is Waiting Beneath the Fold..."
   })
 
+  // randomizer
+  function videoRandomizer() {
+    let randomNum = Math.floor(Math.random() * (10 - 3) + 3);
+    console.log(randomNum)
+    return 
+  }
+
+    
+
   const onSearch = async (searchWord) => {
+    let randomNum = Math.floor(Math.random() *  (10 - 3) + 3);
+    console.log(randomNum)
     const response = await API.get("/search", {
       params: {
         q: searchWord + " diy",
-        type: "video"
+        type: "video",
+        maxResults: 10,
       }
     })
 

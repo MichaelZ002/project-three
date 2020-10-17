@@ -16,86 +16,96 @@ const wordStylez = {
 
 function createVidTiles(vidInfo, vidSelected, user) {
 
-  const like = (snippet, id) => {  
+  const like = (snippet, id) => {
     axios({
       method: 'post',
       url: '/api/save-link',
-      data: {snippet, id, uid: user.uid}
+      data: { snippet, id, uid: user.uid }
 
-    }).then(res =>{ 
+    }).then(res => {
       console.log("line 27 video.js console", res)
 
     }).catch(err => {
       console.log(err)
     })
-    
+
   }
-  
-  const unLike = (id) => {  
+
+  const unLike = (id) => {
     axios({
       method: 'delete',
       url: '/api/save-link',
-      data: {_id: id}
+      data: { _id: id }
 
-    }).then(res =>{ 
+    }).then(res => {
       console.log("line 27 video.js console", res)
 
     }).catch(err => {
       console.log(err)
     })
-    
+
   }
 
-  if (vidInfo) {
-  return vidInfo.map(({ snippet, id }, index) => {
-    const [clicked, setClicked] = useState("gray")
-    
-// changes liked button's color if liked or not and send to
-// or delete from database 
-// add code to check if a video is already in the database on like
+  function arrayShuffler(vidArr) {
+    let vidShuffle = vidArr => vidArr.sort(() => .5 - Math.random());
+    console.log("my vidInfo ", vidArr)
+    console.log("shuffled vidInfo ", vidShuffle)
+    return vidShuffle
+  }
 
-    function clickable() {
-      
-      if(clicked === "gray") {
-        setClicked("red")
-        like(snippet, id.videoId)
-      } else {
-        setClicked("gray")
-        unLike(id.videoId)
+  
+  if (vidInfo) {
+    console.log("my vidInfo ", vidInfo)
+    
+    
+    return vidInfo.sort(() => .5 - Math.random()).slice(0, 3).map(({ snippet, id }, index) => {
+      console.log("shuffled vidInfo ", vidInfo)
+      const [clicked, setClicked] = useState("gray")
+
+      // changes liked button's color if liked or not and send to
+      // or delete from database 
+      // add code to check if a video is already in the database on like
+
+      function clickable() {
+
+        if (clicked === "gray") {
+          setClicked("red")
+          like(snippet, id.videoId)
+        } else {
+          setClicked("gray")
+          unLike(id.videoId)
+        }
       }
 
-    }
 
-   
-    return (
-      <div style={{display: "inline-flex", width: "80vw", maxWidth:"100vw"}} key={index}>
-        
+      return (
+        <div style={{ display: "inline-flex", width: "80vw", maxWidth: "100vw" }} key={index}>
+
           <div className="video" id="firstVid" key={index}>
-            <VidPlayer snippet={snippet.thumbnails.high.url} index={index} videoId={id.videoId}/>
+            <VidPlayer snippet={snippet.thumbnails.high.url} index={index} videoId={id.videoId} />
             <p className="title">{snippet.title}</p>
           </div>
-        
-        
-        <div className="videoInfo" style={wordStylez}>
-          <button onClick = {() => {clickable()}}>
-        <FontAwesomeIcon  icon={faHeart} style={{color: clicked, fontSize: "25px", marginTop: "0"}}/>
-        </button>
-          <h4 style={{textDecoration: "bold"}}>{snippet.channelTitle}</h4>
-          <p style={{textDecoration: "italics"}}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>  
-          <p>
-            {snippet.description} 
-            <a id="gradientAnchors" href={`https://www.youtube.com/watch?v=${id.videoId}`} style={{marginLeft:"6px"}} target="blank">See more on Youtube</a>
-          </p>  
+
+
+          <div className="videoInfo" style={wordStylez}>
+            <button onClick={() => { clickable() }}>
+              <FontAwesomeIcon icon={faHeart} style={{ color: clicked, fontSize: "25px", marginTop: "0" }} />
+            </button>
+            <h4 style={{ textDecoration: "bold" }}>{snippet.channelTitle}</h4>
+            <p style={{ textDecoration: "italics" }}>{dayjs(snippet.publishTime).format("MMMM DD, YYYY")}</p>
+            <p>
+              {snippet.description}
+              <a id="gradientAnchors" href={`https://www.youtube.com/watch?v=${id.videoId}`} style={{ marginLeft: "6px" }} target="blank">See more on Youtube</a>
+            </p>
+          </div>
         </div>
-      </div>
-    );
-  });
-}}
-const Video = ({ data, vidSelected}) => {
+      );
+    });
+  }
+}
+const Video = ({ data, vidSelected }) => {
 
-  const user = useContext (UserContext)
-  console.log(user)
-
+  const user = useContext(UserContext)
   return <>{createVidTiles(data, vidSelected, user)}</>;
 
 };
