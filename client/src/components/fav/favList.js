@@ -17,12 +17,12 @@ export default (props) => {
   const history = useHistory();
 
   useEffect(() => {
-    if (uHasData.length < 1 && props.user) {
+    if (uHasData.length <= 1 && props.user) {
       console.log("Hey! You found some data!");
       console.log(props.user.uid);
       grabUserData(props.user.uid);
     }
-  });
+  }, []);
 
   function createNewProject(favID, uid) {
     console.log(`${favID} ${uid} I AM TRYING`);
@@ -50,7 +50,7 @@ export default (props) => {
 
   function destroyUserData(favID) {
     API.deleteUserData(props.user.uid, favID)
-      .then((res) => grabUserData())
+      .then((res) => grabUserData(props.user.uid))
       .catch((err) => console.log(err));
   }
 
