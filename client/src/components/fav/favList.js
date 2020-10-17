@@ -28,7 +28,7 @@ export default (props) => {
     console.log(`${favID} ${uid}`);
     axios({
       method: "post",
-      url: "/api/project",
+      url: "/api/projects",
       data: { favID, uid }
     })
       .then(() => {
