@@ -100,7 +100,7 @@ const Project = () => {
           style={{ marginTop: "35px", marginLeft: "16vw", marginRight: "1vw" }}
         >
           <Paper className={classes.paper}>
-            <h3>My Project Blueprints</h3>
+            <h3>Project Notes</h3>
             <ToDoList />
           </Paper>
         </Grid>
