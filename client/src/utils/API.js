@@ -21,7 +21,7 @@ export default {
 
   updateProject: function (todoItem) {
     // return console.log("update dbAPI")
-    return axios.get("/api/projects", {
+    return axios.post("/api/projects", {
       params: {
         notes: todoItem,
       },
