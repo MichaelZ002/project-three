@@ -40,6 +40,7 @@ export const useTodos = (initialValue = []) => {
     }
 
   },[todos])
+  
   return {
     todos,
     addTodo: text => {
