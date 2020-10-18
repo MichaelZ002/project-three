@@ -27,8 +27,4 @@ export default {
       },
     });
   },
-
-  getVidFromDB: function(){
-    return axios.get('/api/projectvid')
-  }
 };
