@@ -76,11 +76,12 @@ router.route("/projects").post((req, res) => {
 });
 
 router.route("/projectvid").get((req, res) => {
-  db.Project.find()
-    .sort({ $natural: -1 })
-    .limit(5)
-    res.end()
-    .then((res) => console.log(res))
+  db.Fave.find()
+    .limit(1)
+    .then((result) => {
+      console.log(res);
+      res.json(result)
+    })
     .catch((err) => console.log(err));
 });
 

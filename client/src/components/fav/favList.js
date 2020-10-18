@@ -37,8 +37,6 @@ export default (props) => {
       .catch((err) => console.log(err));
     history.push("/project");
   }
-
-
   function grabUserData(uid) {
     console.log("grabData UID" + uid);
     let randomNum = Math.floor(Math.random() * (10 - 3) + 3);
@@ -52,13 +50,11 @@ export default (props) => {
       .catch((err) => console.log(err));
       
   }
-
   function destroyUserData(favID) {
     API.deleteUserData(props.user.uid, favID)
       .then((res) => grabUserData(props.user.uid))
       .catch((err) => console.log(err));
   }
-
   const useStyles = makeStyles((theme) => ({
     myh1: {
       marginTop: "5vh",
