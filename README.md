@@ -62,4 +62,4 @@ If a developer wishes to contribute to this project, please send an email using 
 In the future, we plan to expand the app, giving the users more option/guide on projects.
 ## Questions & Links
 
-To see more of our work, you can visit [Brianna's Github Profile](https://www.github.com/kairora), [Ben's Github Profile](https://github.com/bdegarcia), [Michael's Github Profile](https://github.com/MichaelZ002)or [Arpita's Github Profile](https://github.com/arpitasau).  You may also peek at [this app's Github repo](https://github.com/MichaelZ002/project-three) to learn more about this program.
+To see more of our work, you can visit [Brianna's Github Profile](https://www.github.com/kairora), [Ben's Github Profile](https://github.com/bdegarcia), [Michael's Github Profile](https://github.com/MichaelZ002) or [Arpita's Github Profile](https://github.com/arpitasau).  You may also peek at [this app's Github repo](https://github.com/MichaelZ002/project-three) to learn more about this program.
