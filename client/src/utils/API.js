@@ -20,14 +20,11 @@ export default {
   },
 
   updateProject: function (todoItem) {
-    return axios.get("/api/projects", {
+    // return console.log("update dbAPI")
+    return axios.post("/api/projects", {
       params: {
         notes: todoItem,
       },
     });
   },
-
-  getVidFromDB: function(){
-    return axios.get('/api/projectvid')
-  }
 };
