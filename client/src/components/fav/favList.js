@@ -40,9 +40,8 @@ export default (props) => {
 
 
   function grabUserData(uid) {
-    console.log("grabData UID" + uid);
     let randomNum = Math.floor(Math.random() * (10 - 3) + 3);
-    console.log(randomNum)
+
 
     API.getUserData(uid)
       .then((res) => {

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 import { UserContext } from '../../prov/UserProvider';
+import API from "../../utils/API";
 
 const wordStylez = {
   position: "relative",
@@ -62,18 +63,18 @@ function createVidTiles(vidInfo, vidSelected, user) {
 
   }
 
-  const unLike = (id) => {
-    axios({
-      method: 'delete',
-      url: '/api/save-link',
-      data: { _id: id }
+  const unLike = (vidID) => {
+    // axios({
+    //   method: 'delete',
+    //   url: '/api/save-link',
+    //   data: { _id: id }
 
-    }).then(res => {
-      console.log("line 27 video.js console", res)
+    // }).then(res => {
+    //   console.log("line 27 video.js console", res)
 
-    }).catch(err => {
-      console.log(err)
-    })
+    // }).catch(err => {
+    //   console.log(err)
+    // })
 
   }
 
@@ -81,6 +82,7 @@ function createVidTiles(vidInfo, vidSelected, user) {
 
   
   if (vidInfo) {
+    // randomizing videos 
     //copy this code over vidInfo on line 76 to randomize: vidInfo= vidInfo.sort(() => .5 - Math.random()).slice(0, 3)
 
     return vidInfo.map(({ snippet, id }, index) => {
@@ -90,20 +92,14 @@ function createVidTiles(vidInfo, vidSelected, user) {
           findFav(user.uid, id.videoId)
           setClicked({...clicked, [index]:"red"})
           like(snippet, id.videoId)
-        } else {
-          setClicked({...clicked, [index]:"gray"})
-          unLike(id.videoId)
-        }
+        } 
+        // code for future development: Toggle liked back to unlike
+        // else {
+        //   setClicked({...clicked, [index]:"gray"})
+        //   unLike(user.uid, id.videoId)
+        // }
       }
-      
-      
-
-      // changes liked button's color if liked or not and send to
-      // or delete from database 
-      // add code to check if a video is already in the database on like
-
-      
-
+       
 
       return (
         <div style={{ display: "inline-flex", width: "80vw", maxWidth: "100vw" }} key={index}>
@@ -131,7 +127,6 @@ function createVidTiles(vidInfo, vidSelected, user) {
   }
 }
   
-
 
 return <>{createVidTiles(data, vidSelected, user)}</>;
 

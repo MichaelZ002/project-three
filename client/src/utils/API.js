@@ -9,7 +9,7 @@ export default {
       },
     });
   },
-  // Deletes the book with the given id
+  // Deletes the favorite with the given id and user id
   deleteUserData: function (uid, fid) {
     return axios.delete("/api/removedfavs", {
       params: {
@@ -20,7 +20,6 @@ export default {
   },
 
   updateProject: function (todoItem) {
-    // return console.log("update dbAPI")
     return axios.get("/api/projects", {
       params: {
         notes: todoItem,
