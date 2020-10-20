@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { AccountCircle, LockRounded, EmailRounded } from "@material-ui/icons";
+import { LockRounded, EmailRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
 import { auth } from "../../firebase";
@@ -136,7 +136,6 @@ const Signup = () => {
               label="Email"
               margin="normal"
               name="email"
-              placeholder="Your Email Here"
               onChange={onChangeHandler}
               variant="outlined"
               value={email}
