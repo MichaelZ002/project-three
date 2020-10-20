@@ -6,7 +6,7 @@ import ReactPlayer from "react-player";
 import { makeStyles } from "@material-ui/styles";
 import ToDoList from "./index";
 import axios from "axios"
-import API from "../../utils/API";
+
 
 const useStyles = makeStyles((theme) => ({
   textarea: {
@@ -80,18 +80,18 @@ const Project = () => {
             />
           </div>
         </Grid>
-        {/* <Grid item xs={2} sm={2} md={1} style={{ marginTop: "35px", }}>
+        <Grid item xs={2} sm={2} md={1} style={{ marginTop: "35px", }}>
                     < div />
-                </Grid> */}
-        {/* <Grid item xs={10} sm={10} md={4}style={{ marginTop: "35px" }} justify="center">
-                    <Paper className={classes.paper} elevation="5">
-                        <h3>Materials Needed</h3> */}
-        {/* < ToDoList /> */}
-        {/* </Paper>
-                </Grid> */}
-        {/* <Grid item xs={2} sm={2} style={{ marginTop: "35px" }}>
+                </Grid>
+        <Grid item xs={10} sm={10} md={4}style={{ marginTop: "35px" }} >
+                    <Paper className={classes.paper} >
+                        <h3>Materials Needed</h3>
+        < ToDoList />
+        </Paper>
+                </Grid>
+        <Grid item xs={2} sm={2} style={{ marginTop: "35px" }}>
                     < div />
-                </Grid> */}
+                </Grid>
         <Grid
           item
           xs={10}

@@ -1,4 +1,4 @@
-import React, {  useState, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import {List, ListItem, Button, Drawer } from '@material-ui/core';
 import clsx from 'clsx';
 import sidebarItems from './sidebarItems';
@@ -43,13 +43,9 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const SideBar = (props) => {
-    // const [ menu, setMenu ] = useState({});
     const { className, ...rest } = props;
     const classes  = useStyles();
-    // const handleClick = (item) => {
-    //     let newData = {...menu, [item] : !menu[item]};
-    //     setMenu(newData);
-    // }
+   
     const CustomRouterLink = forwardRef((props, ref) => (
       <div ref={ref} style={{ flexGrow: 1 }}>
         <RouterLink {...props} />

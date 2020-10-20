@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import { AccountCircle, LockRounded, EmailRounded } from "@material-ui/icons";
+import { LockRounded, EmailRounded } from "@material-ui/icons";
 import Image from "../../images/bg.jpg";
 import Typed from "react-typed";
 import { auth } from "../../firebase";
@@ -53,16 +53,14 @@ const Signup = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [customerName, setCustomerName] = useState("");
+
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
     if (name === "email") {
       setEmail(value);
     } else if (name === "password") {
       setPassword(value);
-    } else if (name === "customerName") {
-      setCustomerName(value);
-    }
+    } 
   };
   const classes = useStyles();
   return (
@@ -115,23 +113,6 @@ const Signup = () => {
                 Sign Up
               </Typography>
             </Grid>
-            {/* <InputField
-              label="Name"
-              name="customerName"
-              value={customerName}
-              placeholder="Your Name Here"
-              margin="normal"
-              variant="outlined"
-              onChange={onChangeHandler}
-              InputProps={{
-                style: { color: "black" },
-                startAdornment: (
-                  <InputAdornment position="start" style={{ color: "black" }}>
-                    <AccountCircle />
-                  </InputAdornment>
-                ),
-              }}
-            /> */}
             <InputField
               label="Email"
               margin="normal"

@@ -12,6 +12,7 @@ import axios from "axios";
 
 export default (props) => {
   const [uHasData, setUHasData] = useState([]);
+  const [vidIDstate, setVidIDState] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -32,13 +33,17 @@ export default (props) => {
       data: { favID, uid }
     })
       .then(() => {
-        console.log("/project working");
+        console.log("my favID " + favID)
+        setVidIDState(favID)
+      })
+      .then(() => {
+        console.log("this is my vid state " + vidIDstate)
       })
       .catch((err) => console.log(err));
-    history.push("/project");
+    history.push("/project/");
   }
   function grabUserData(uid) {
-    let randomNum = Math.floor(Math.random() * (10 - 3) + 3);
+    // let randomNum = Math.floor(Math.random() * (10 - 3) + 3);
 
 
     API.getUserData(uid)
