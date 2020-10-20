@@ -9,6 +9,24 @@ This app has multiple functionality and meant for users who like to explore DIY 
 
 ---
 
+## Technologies Used
+* React for building UI components.
+* Node and Express for JavaScript run time environment.
+* Mongo for database.
+* Material UI for styling.
+* Fire-base for user authentication.
+* Axios for API calls.
+* JavaScript ES6 for logic.
+* Heroku and mongo atlas for deploying the application
+* Several npm packages used such as:
+    1. dotenv for loading environment variables from .env file
+    2. React-typed for animating texts.
+    3. React-slick for carousel.
+    4. React-player for playing video
+    5. React-router-dom for DOM manipulation.
+
+---
+
 ## Table of Contents
 1. [Installation](#Installation)
 2. [Usage](#Usage)
