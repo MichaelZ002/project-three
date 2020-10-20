@@ -6,7 +6,10 @@ import ReactPlayer from "react-player";
 import { makeStyles } from "@material-ui/styles";
 import ToDoList from "./index";
 import axios from "axios"
-import API from "../../utils/API";
+import {useLocation, useHistory} from "react-router"
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   textarea: {
@@ -36,17 +39,11 @@ const useStyles = makeStyles((theme) => ({
 //define axios call, return vid id
 
 const Project = () => {
+  const history = useHistory();
+  const location = useLocation()
   const [vidData, setVidData] = useState("");
   function getVid() {
-    axios({
-        method: "get",
-        url: "/api/projectvid"
-    })
-      .then((res) => {
-        console.log(res);
-        setVidData(res.data[0].faveVids)
-      })
-      .catch((err) => console.log(err));
+        setVidData(location.push)
   }
 
   useEffect(() => {
