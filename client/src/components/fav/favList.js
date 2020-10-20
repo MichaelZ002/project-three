@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "../button";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router";
 import dayjs from "dayjs";
 import axios from "axios";
 
@@ -24,18 +24,18 @@ export default (props) => {
   }, []);
 
 
-  function createNewProject(favID, uid) {
+  function createNewProject(favID, uid, vidID) {
     console.log(`${favID} ${uid}`);
     axios({
       method: "post",
       url: "/api/projects",
       data: { favID, uid }
     })
-      .then(() => {
-        console.log("/project working");
-      })
+      .then(() => {console.log(`great Success`)})
       .catch((err) => console.log(err));
-    history.push("/project");
+      history.push({
+        pathname: "/project",
+        push: vidID});
   }
   function grabUserData(uid) {
     console.log("grabData UID" + uid);
@@ -121,7 +121,7 @@ export default (props) => {
                         className={classes.childVid}
                         videoId={fav.faveVids[0]}
                       />
-                      <Button onClick={() => createNewProject(fav._id, props.user.uid)}>
+                      <Button onClick={() => {createNewProject(fav._id, props.user.uid, fav.faveVids[0])}}>
                         Create a Project
                       </Button>
                     </div>
