@@ -85,19 +85,11 @@ const Project = () => {
                 </Grid> */}
         {/* <Grid item xs={10} sm={10} md={4}style={{ marginTop: "35px" }} justify="center">
                     <Paper className={classes.paper} elevation="5">
-<<<<<<< HEAD
-                        <h3>Materials Needed</h3>
-                        < ToDoList />
-                    </Paper>
-                </Grid>
-                <Grid item xs={2} sm={2} style={{ marginTop: "35px" }}>
-=======
                         <h3>Materials Needed</h3> */}
         {/* < ToDoList /> */}
         {/* </Paper>
                 </Grid> */}
         {/* <Grid item xs={2} sm={2} style={{ marginTop: "35px" }}>
->>>>>>> 6045f5e95a2f697e7512e72178f76d5fafa9769f
                     < div />
                 </Grid> */}
         <Grid
